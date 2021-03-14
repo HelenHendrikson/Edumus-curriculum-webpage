@@ -1,0 +1,19 @@
+.logo{
+  width: 120px;
+}
+
+.main-bg{
+  background-color: #fde4be;
+}
+
+.btn{
+  border-radius: 0;
+}
+
+.btn-primary{
+  background-color: #f26e74;
+  border: none;
+  width: 120px;
+  height: 60px;
+  text-align: center;
+}
