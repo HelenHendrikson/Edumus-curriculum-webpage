@@ -1,0 +1,35 @@
+body {
+background-color: #FEE4C0;
+}
+li {
+  float: right;
+}
+li a {
+  display: block;
+  padding: 8px;
+  text-decoration: none;
+  color: #1C4D37;
+}
+ul {
+list-style-type:none;
+}
+.Header-nav {
+    font-family: Open Sans;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 14px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin: 0 1.2em;
+    padding: .618em 0;
+    align-items: center;
+    text-align: center;
+    line-height: 1.6em;
+}
+.Header-branding-logo {
+    max-width: 120px;
+    width: 100%;
+}
+.nav-item {
+  padding: 10px 0px 0px 0px;
+}
