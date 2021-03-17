@@ -51,7 +51,7 @@ footer a {
     line-height: 1.6em;
     width: 100%;
 }
-.Header-branding-logo {
+.Header-branding-logo, .teaching-logo {
     max-width: 120px;
     width: 100%;
     margin: 10px 20px;
@@ -78,7 +78,7 @@ footer a {
 }
 
 .btn {
-  border-radius: 0;
+  border-radius: 15px;
 }
 
 .btn-primary {
@@ -108,3 +108,46 @@ footer a {
 .footer-link{
   margin: 24px 0;
 }
+
+aside {
+  width: 20%;
+  float: left;
+  display: inline;
+  padding: 10px;
+  background-color: #1C4D37;
+}
+
+.card-item {
+  background-color: white;
+  border-radius: 10px;
+}
+.card {
+  width: 70%;
+  margin-left: 25%;
+  text-align: left;
+  padding: 3px;
+
+}
+
+p,h3,h5,a,button {
+  font-family: "HK Grotesk";
+  font-style: medium;
+}
+
+.course-review {
+  font-style: italic;
+}
+
+.course-author{
+  font-size: 18px;
+}
+
+a {
+  font-style: bold;
+
+}
+
+h3 {
+  font-size: 24px;
+}
+
