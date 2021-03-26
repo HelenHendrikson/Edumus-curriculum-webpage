@@ -6,6 +6,20 @@
     <title>Edumus</title>
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./starter-template.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(window).scroll(function () {
+        var kv = $("#keyVision");
+        kv.each(function () {
+            if (($(this).offset().top - $(window).scrollTop()) < 50) {
+                $(this).stop().fadeTo(800, 0, "linear");
+            } else {
+                $(this).stop().fadeTo('slow', 1, "linear");
+            }
+        });
+    });
+    </script>
+
 </head>
 
 <body>
@@ -46,7 +60,7 @@
         </div>
     </nav>
     <main role="main" class="container">
-        <div>
+        <div id="keyVision">
             <img src="img/keyVision.png" alt="" class="key-vision">
         </div>
         <div id="courses">
