@@ -1,11 +1,7 @@
 body {
-    background-color: #FEE4C0;
+    background-color: white;
     margin: 0;
     font-family: "HK Grotesk", sans-serif;
-}
-
-a {
-    text-decoration: none;
 }
 
 li {
@@ -124,6 +120,11 @@ blockquote::after {
     text-align: center;
 }
 
+.btn-course-filter[aria-expanded="true"] {
+/*  background-color: #0b5ed7;
+  border-color: #0b5ed7;*/
+}
+
 .more {
     text-align: center;
     margin: 40px;
@@ -162,18 +163,71 @@ button {
 }
 
 .course-author {
-    font-size: 18px;
+    font-size: 17px;
 }
 
-a {
-    font-style: bold;
+.see-more-link {
+  font-style: bold;
+  color: #F27178;
+  text-decoration: none;
+}
 
+.see-more-link::after {
+  content: '→';
+  margin-left: 0.2em;
+  font-size: 0.9em;
+}
+
+.see-more-link span {
+  text-decoration: underline;
+}
+.see-more-link:hover {
+  color: #d24d54;
 }
 
 h3 {
     font-size: 24px;
+    font-family: Noe Display;
+    font-style: bold;
+    color: #1C4D37;
+}
+
+h5 {
+    color: #1C4D37;
+}
+
+.card-body {
+  padding: 0px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.card {
+  border: 1px #FEE4C0 solid;
 }
 
 .info {
     text-align: center;
+    font-size: 14px;
+}
+
+.subject {
+  background-color: rgba(28, 77, 55, .15)
+}
+
+.course-info {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.subject-style {
+  font-weight: bold;
+}
+
+.arrow-style {
+  text-decoration: none;
+
 }
