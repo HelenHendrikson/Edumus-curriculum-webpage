@@ -72,6 +72,9 @@ blockquote::after {
 
 
 .Header-nav {
+    background-image:url('edumus_elements.png');
+    background-position: 90% 80%;
+    background-repeat: no-repeat;
     font-weight: 600;
     font-style: normal;
     font-size: 14px;
@@ -83,6 +86,7 @@ blockquote::after {
     text-align: center;
     line-height: 1.6em;
     width: 100%;
+    color:#1C4D37;
 }
 
 .Header-branding-logo {
