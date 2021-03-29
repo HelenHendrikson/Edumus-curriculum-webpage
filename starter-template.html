@@ -11,10 +11,8 @@
     $(window).scroll(function () {
         var kv = $("#keyVision");
         kv.each(function () {
-            if (($(this).offset().top - $(window).scrollTop()) < 50) {
-                $(this).stop().fadeTo(800, 0, "linear");
-            } else {
-                $(this).stop().fadeTo('slow', 1, "linear");
+            if (($(this).offset().top - $(window).scrollTop()) < 600) {
+                $(this).stop().fadeOut(100);
             }
         });
     });
@@ -59,33 +57,31 @@
             </ul>
         </div>
     </nav>
-    <main role="main" class="container">
-        <div id="keyVision">
+
+        <div id="keyVision" class="key-vision-container">
             <img src="img/keyVision.png" alt="" class="key-vision">
         </div>
         <div id="courses">
             <div class="starter-template text-center py-5 px-3">
-                <p>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#arts" data-bs-parent="#courses">Arts</button>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#electives" data-bs-parent="#courses">Elective Studies</button>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#languages" data-bs-parent="#courses">Language & literature</button>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#maths" data-bs-parent="#courses">Maths</button>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#sciences" data-bs-parent="#courses">Natural Science</button>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#social" data-bs-parent="#courses">Social Studies</button>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#technology" data-bs-parent="#courses">Technology Studies</button>
-                </p>
+                <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#arts" data-bs-parent="#courses" aria-expanded="false">Arts</button>
+                <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#electives" data-bs-parent="#courses" aria-expanded="false">Elective Studies</button>
+                <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#languages" data-bs-parent="#courses" aria-expanded="false">Language & literature</button>
+                <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#maths" data-bs-parent="#courses" aria-expanded="false">Maths</button>
+                <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#sciences" data-bs-parent="#courses" aria-expanded="false">Natural Science</button>
+                <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#social" data-bs-parent="#courses" aria-expanded="false">Social Studies</button>
+                <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#technology" data-bs-parent="#courses" aria-expanded="false">Technology Studies</button>
             </div>
-
+        <main role="main" class="container">
             <!-- Arts -->
             <div id="arts" class="collapse show" data-bs-parent="#courses">
                 <div class="container card mb-3">
                   <div class="row">
                     <div class="col-md-3 g-0 text-center">
-                        <div class="card-body">
+                        <div class="card-body subject">
                             <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
                             <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for 9th grade students</p>
-                                <p class="course-metadata">20 teachers and 10 schools have taught the subject</p>
+                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and  <span class="subject-style">10</span> schools have taught the subject</p>
                             </div>
                         </div>
                     </div>
@@ -94,140 +90,136 @@
                         <h3 class="card-title">Art</h3>
                         <h5 class="course-author">Author: Junior Achievement</h5>
                         <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine. Nõuab lisakoolitust õpetajalt. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                        <a href="#" link="">See More</a>
+                        <div class="more-line">
+                            <a href="#" class="see-more-link" link=""><span>See More</span></a>
+                        </div>
+                        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <div class="more"><a href="" class="load-more">Load more</a></div>
             </div>
 
 
 
             <!-- Elective studies -->
-            <div id="electives" class="collapse" data-bs-parent="#courses">
+            <div id="electives" class="collapse show" data-bs-parent="#courses">
                 <div class="container card mb-3">
                   <div class="row">
                     <div class="col-md-3 g-0 text-center">
-                        <div class="card-body">
+                        <div class="card-body subject">
                             <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
                             <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for 9th grade students</p>
-                                <p class="course-metadata">20 teachers and 10 schools have taught the subject</p>
+                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and  <span class="subject-style">10</span> schools have taught the subject</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Elective</h3>
+                        <h3 class="card-title">Art</h3>
                         <h5 class="course-author">Author: Junior Achievement</h5>
                         <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine. Nõuab lisakoolitust õpetajalt. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                        <a href="#" link="">See More</a>
+                        <div class="more-line"><a href="#" class="see-more-link" link=""><span>See More</span></a></div>
+                        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="more"><a href="" class="load-more">Load more</a></div>
             </div>
 
             <!-- Languages -->
-            <div id="languages" class="collapse" data-bs-parent="#courses">
+            <div id="languages" class="collapse show" data-bs-parent="#courses">
                 <div class="container card mb-3">
                   <div class="row">
                     <div class="col-md-3 g-0 text-center">
-                        <div class="card-body">
+                        <div class="card-body subject">
                             <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
                             <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for 9th grade students</p>
-                                <p class="course-metadata">20 teachers and 10 schools have taught the subject</p>
+                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and  <span class="subject-style">10</span> schools have taught the subject</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Estonian</h3>
+                        <h3 class="card-title">Art</h3>
                         <h5 class="course-author">Author: Junior Achievement</h5>
                         <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine. Nõuab lisakoolitust õpetajalt. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                        <a href="#" link="">See More</a>
+                        <div class="more-line"><a href="#" class="see-more-link" link=""><span>See More</span></a></div>
+                        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="more"><a href="" class="load-more">Load more</a></div>
             </div>
 
 
             <!-- Maths -->
-            <div id="maths" class="collapse" data-bs-parent="#courses">
+            <div id="maths" class="collapse show" data-bs-parent="#courses">
                 <div class="container card mb-3">
                   <div class="row">
                     <div class="col-md-3 g-0 text-center">
-                        <div class="card-body">
+                        <div class="card-body subject">
                             <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
                             <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for 9th grade students</p>
-                                <p class="course-metadata">20 teachers and 10 schools have taught the subject</p>
+                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and  <span class="subject-style">10</span> schools have taught the subject</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Maths</h3>
+                        <h3 class="card-title">Art</h3>
                         <h5 class="course-author">Author: Junior Achievement</h5>
                         <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine. Nõuab lisakoolitust õpetajalt. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                        <a href="#" link="">See More</a>
+                        <div class="more-line">
+                            <a href="#" class="see-more-link" link=""><span>See More</span></a>
+                        </div>
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="more"><a href="" class="load-more">Load more</a></div>
             </div>
 
-            <!-- Natural science -->
-            <div id="science" class="collapse" data-bs-parent="#courses">
+            <!-- Natural sciences -->
+            <div id="sciences" class="collapse show" data-bs-parent="#courses">
                 <div class="container card mb-3">
                   <div class="row">
                     <div class="col-md-3 g-0 text-center">
-                        <div class="card-body">
+                        <div class="card-body subject">
                             <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
                             <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for 9th grade students</p>
-                                <p class="course-metadata">20 teachers and 10 schools have taught the subject</p>
+                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and  <span class="subject-style">10</span> schools have taught the subject</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Natural science course</h3>
+                        <h3 class="card-title">Art</h3>
                         <h5 class="course-author">Author: Junior Achievement</h5>
                         <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine. Nõuab lisakoolitust õpetajalt. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                        <a href="#" link="">See More</a>
+                        <div class="more-line"><a href="#" class="see-more-link" link=""><span>See More</span></a></div>
+                        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="more"><a href="" class="load-more">Load more</a></div>
             </div>
+
+            <!-- Social -->
+            <div id="social" class="collapse show" data-bs-parent="#courses"></div>
+
+            <!-- Technology -->
+            <div id="technology" class="collapse show" data-bs-parent="#courses"></div>
 
         </div>
-
-        <!-- Maths -->
-        <div id="maths" class="collapse" data-bs-parent="#courses"></div>
-
-        <!-- Sciences -->
-        <div id="sciences" class="collapse" data-bs-parent="#courses"></div>
-
-        <!-- Social -->
-        <div id="social" class="collapse" data-bs-parent="#courses"></div>
-
-        <!-- Technology -->
-        <div id="technology" class="collapse" data-bs-parent="#courses"></div>
     </main>
     <footer>
         <div class="footer-font">TALLINN, ESTONIA 5345880 HELLO@EDUMUS.ORG</div>
