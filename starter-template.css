@@ -1,5 +1,5 @@
 body {
-    background-color: white;
+    background-color: #fff;
     margin: 0;
     font-family: "HK Grotesk", sans-serif;
 }
@@ -87,6 +87,10 @@ blockquote::after {
     margin: 10px 20px;
 }
 
+.navbar{
+    background-color: #FEE4C0;
+}
+
 .nav-item {
     padding: 10px 0px 0px 0px;
 }
@@ -96,9 +100,15 @@ blockquote::after {
     margin: 0px auto;
 }
 
-.key-vision {
-    width: 100%;
+.key-vision-container {
+    text-align: center;
+    background-color: #FEE4C0;
 }
+
+.key-vision{
+    max-width: 960px;
+}
+
 
 .logo {
     width: 120px;
@@ -166,6 +176,10 @@ button {
     font-size: 17px;
 }
 
+.more-line{
+    text-align: right;
+}
+
 .see-more-link {
   font-style: bold;
   color: #F27178;
@@ -200,7 +214,7 @@ h5 {
   padding: 0px;
   margin-top: 20px;
   margin-left: 20px;
-  margin-right: 10px;
+  margin-right: 20px;
   margin-bottom: 20px;
 }
 
@@ -230,4 +244,8 @@ h5 {
 .arrow-style {
   text-decoration: none;
 
+}
+
+.more-line{
+    text-align: right;
 }

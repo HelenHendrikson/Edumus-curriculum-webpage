@@ -11,10 +11,8 @@
     $(window).scroll(function () {
         var kv = $("#keyVision");
         kv.each(function () {
-            if (($(this).offset().top - $(window).scrollTop()) < 50) {
-                $(this).stop().fadeTo(800, 0, "linear");
-            } else {
-                $(this).stop().fadeTo('slow', 1, "linear");
+            if (($(this).offset().top - $(window).scrollTop()) < 600) {
+                $(this).stop().fadeOut(100);
             }
         });
     });
@@ -59,8 +57,8 @@
             </ul>
         </div>
     </nav>
-    <main role="main" class="container">
-        <div id="keyVision">
+
+        <div id="keyVision" class="key-vision-container">
             <img src="img/keyVision.png" alt="" class="key-vision">
         </div>
         <div id="courses">
@@ -73,7 +71,7 @@
                 <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#social" data-bs-parent="#courses" aria-expanded="false">Social Studies</button>
                 <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#technology" data-bs-parent="#courses" aria-expanded="false">Technology Studies</button>
             </div>
-
+        <main role="main" class="container">
             <!-- Arts -->
             <div id="arts" class="collapse show" data-bs-parent="#courses">
                 <div class="container card mb-3">
@@ -92,7 +90,10 @@
                         <h3 class="card-title">Art</h3>
                         <h5 class="course-author">Author: Junior Achievement</h5>
                         <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine. Nõuab lisakoolitust õpetajalt. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                        <a href="#" class="see-more-link" link=""><span>See More</span></a>
+                        <div class="more-line">
+                            <a href="#" class="see-more-link" link=""><span>See More</span></a>
+                        </div>
+                        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
@@ -120,7 +121,8 @@
                         <h3 class="card-title">Art</h3>
                         <h5 class="course-author">Author: Junior Achievement</h5>
                         <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine. Nõuab lisakoolitust õpetajalt. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                        <a href="#" class="see-more-link" link=""><span>See More</span></a>
+                        <div class="more-line"><a href="#" class="see-more-link" link=""><span>See More</span></a></div>
+                        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
@@ -146,7 +148,8 @@
                         <h3 class="card-title">Art</h3>
                         <h5 class="course-author">Author: Junior Achievement</h5>
                         <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine. Nõuab lisakoolitust õpetajalt. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                        <a href="#" class="see-more-link" link=""><span>See More</span></a>
+                        <div class="more-line"><a href="#" class="see-more-link" link=""><span>See More</span></a></div>
+                        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
@@ -173,7 +176,9 @@
                         <h3 class="card-title">Art</h3>
                         <h5 class="course-author">Author: Junior Achievement</h5>
                         <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine. Nõuab lisakoolitust õpetajalt. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                        <a href="#" class="see-more-link" link=""><span>See More</span></a>
+                        <div class="more-line">
+                            <a href="#" class="see-more-link" link=""><span>See More</span></a>
+                        </div>
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
@@ -199,7 +204,8 @@
                         <h3 class="card-title">Art</h3>
                         <h5 class="course-author">Author: Junior Achievement</h5>
                         <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine. Nõuab lisakoolitust õpetajalt. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                        <a href="#" class="see-more-link" link=""><span>See More</span></a>
+                        <div class="more-line"><a href="#" class="see-more-link" link=""><span>See More</span></a></div>
+                        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
