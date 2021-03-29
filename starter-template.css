@@ -148,16 +148,18 @@ blockquote::after {
 }
 
 .btn-primary {
-    background-color: #f26e74;
-    border: none;
+    background-color: #ffffff;
+    color: #212529;
+    border: 2px #f26e74 solid;
     width: 120px;
     height: 60px;
     text-align: center;
 }
 
 .btn-course-filter[aria-expanded="true"] {
-/*  background-color: #0b5ed7;
-  border-color: #0b5ed7;*/
+    background-color: #f26e74;
+    border-color: #f26e74;
+    color: #ffffff;
 }
 
 .more {
