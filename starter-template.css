@@ -156,10 +156,19 @@ blockquote::after {
     text-align: center;
 }
 
-.btn-course-filter[aria-expanded="true"] {
-    background-color: #f26e74;
-    border-color: #f26e74;
-    color: #ffffff;
+.btn-course-filter {
+  background-color: #f26e74;
+  border: none;
+  width: 120px;
+  height: 60px;
+  text-align: center;
+  outline: none;
+  box-shadow: none !important;
+}
+
+.btn-course-filter.active {
+    background-color: #549974;
+    color: #fff;
 }
 
 .more {

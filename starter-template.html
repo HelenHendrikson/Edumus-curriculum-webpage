@@ -63,17 +63,47 @@
 
         <div id="courses">
             <div class="starter-template text-center py-5 px-3">
-                <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#arts" data-bs-parent="#courses" aria-expanded="false">Arts</button>
-                <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#electives" data-bs-parent="#courses" aria-expanded="false">Elective Studies</button>
-                <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#languages" data-bs-parent="#courses" aria-expanded="false">Language & literature</button>
-                <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#maths" data-bs-parent="#courses" aria-expanded="false">Maths</button>
-                <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#sciences" data-bs-parent="#courses" aria-expanded="false">Natural Science</button>
-                <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#social" data-bs-parent="#courses" aria-expanded="false">Social Studies</button>
-                <button class="btn btn-primary btn-course-filter" type="button" data-bs-toggle="collapse" data-bs-target="#technology" data-bs-parent="#courses" aria-expanded="false">Technology Studies</button>
+
+                <script>
+                    function onCourseClick(button, selector) {
+                        var one = document.querySelector(selector);
+                        var all = document.querySelectorAll('.courses-list');
+
+                        var isSelectedVisible = Array.from(one.classList).includes("show")
+                        var visibleCount = document.querySelectorAll('.courses-list.show').length;
+
+                        // Remove all btn active classes
+                        Array.from(document.querySelectorAll('.btn-course-filter')).forEach(function(el) {
+                            el.classList.remove('active');
+                        })
+
+                        if(isSelectedVisible && visibleCount === 1) {
+                            Array.from(all, function (el) {
+                                new bootstrap.Collapse(el, { toggle: false }).show();
+                            });
+                        } else {
+                            Array.from(all, function (el) {
+                                new bootstrap.Collapse(el, { toggle: false }).hide();
+                            });
+
+                            new bootstrap.Collapse(one, { toggle: false }).show();
+
+                            button.classList.add('active');
+                        }
+                    }
+                </script>
+
+                <button class="btn btn-course-filter" type="button" onClick="javascript:onCourseClick(this, '#arts')">Arts</button>
+                <button class="btn btn-course-filter" type="button" onClick="javascript:onCourseClick(this, '#electives')">Elective Studies</button>
+                <button class="btn btn-course-filter" type="button" onClick="javascript:onCourseClick(this, '#languages')">Language & literature</button>
+                <button class="btn btn-course-filter" type="button" onClick="javascript:onCourseClick(this, '#maths')">Maths</button>
+                <button class="btn btn-course-filter" type="button" onClick="javascript:onCourseClick(this, '#sciences')">Natural Science</button>
+                <button class="btn btn-course-filter" type="button" onClick="javascript:onCourseClick(this, '#social')">Social Studies</button>
+                <button class="btn btn-course-filter" type="button" onClick="javascript:onCourseClick(this, '#technology')">Technology Studies</button>
             </div>
         <main role="main" class="container">
             <!-- Arts -->
-            <div id="arts" class="collapse show" data-bs-parent="#courses">
+            <div id="arts" class="courses-list collapse show" data-bs-parent="#courses">
                 <div class="container card mb-3">
                   <div class="row">
                     <div class="col-md-3 g-0 text-center">
@@ -104,7 +134,7 @@
 
 
             <!-- Elective studies -->
-            <div id="electives" class="collapse show" data-bs-parent="#courses">
+            <div id="electives" class="courses-list collapse show" data-bs-parent="#courses">
                 <div class="container card mb-3">
                   <div class="row">
                     <div class="col-md-3 g-0 text-center">
@@ -118,7 +148,7 @@
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Art</h3>
+                        <h3 class="card-title">Painting with Artur</h3>
                         <h5 class="course-author">Author: Junior Achievement</h5>
                         <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine. Nõuab lisakoolitust õpetajalt. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
                         <div class="more-line"><a href="#" class="see-more-link" link=""><span>See More</span></a></div>
@@ -131,7 +161,7 @@
             </div>
 
             <!-- Languages -->
-            <div id="languages" class="collapse show" data-bs-parent="#courses">
+            <div id="languages" class="courses-list collapse show" data-bs-parent="#courses">
                 <div class="container card mb-3">
                   <div class="row">
                     <div class="col-md-3 g-0 text-center">
@@ -145,7 +175,7 @@
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Art</h3>
+                        <h3 class="card-title">English Literature</h3>
                         <h5 class="course-author">Author: Junior Achievement</h5>
                         <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine. Nõuab lisakoolitust õpetajalt. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
                         <div class="more-line"><a href="#" class="see-more-link" link=""><span>See More</span></a></div>
@@ -159,7 +189,7 @@
 
 
             <!-- Maths -->
-            <div id="maths" class="collapse show" data-bs-parent="#courses">
+            <div id="maths" class="courses-list collapse show" data-bs-parent="#courses">
                 <div class="container card mb-3">
                   <div class="row">
                     <div class="col-md-3 g-0 text-center">
@@ -173,7 +203,7 @@
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Art</h3>
+                        <h3 class="card-title">2 + 2 ≠ 75</h3>
                         <h5 class="course-author">Author: Junior Achievement</h5>
                         <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine. Nõuab lisakoolitust õpetajalt. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
                         <div class="more-line">
@@ -187,7 +217,7 @@
             </div>
 
             <!-- Natural sciences -->
-            <div id="sciences" class="collapse show" data-bs-parent="#courses">
+            <div id="sciences" class="courses-list collapse show" data-bs-parent="#courses">
                 <div class="container card mb-3">
                   <div class="row">
                     <div class="col-md-3 g-0 text-center">
@@ -201,7 +231,7 @@
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Art</h3>
+                        <h3 class="card-title">Physics</h3>
                         <h5 class="course-author">Author: Junior Achievement</h5>
                         <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine. Nõuab lisakoolitust õpetajalt. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
                         <div class="more-line"><a href="#" class="see-more-link" link=""><span>See More</span></a></div>
@@ -214,10 +244,10 @@
             </div>
 
             <!-- Social -->
-            <div id="social" class="collapse show" data-bs-parent="#courses"></div>
+            <div id="social" class="courses-list collapse show" data-bs-parent="#courses"></div>
 
             <!-- Technology -->
-            <div id="technology" class="collapse show" data-bs-parent="#courses"></div>
+            <div id="technology" class="courses-list collapse show" data-bs-parent="#courses"></div>
 
         </div>
     </main>
