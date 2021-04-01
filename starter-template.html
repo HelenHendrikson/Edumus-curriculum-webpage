@@ -9,22 +9,23 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
-    $(window).scroll(function () {
+    $(window).scroll(function (e) {
         var kv = $("#keyVision");
-        kv.each(function () {
-            if (($(this).offset().top - $(window).scrollTop()) < 50) {
-                $(this).stop().fadeTo(800, 0, "linear");
-            } else {
-                $(this).stop().fadeTo(200, 1, "linear");
-            }
-        });
+        var nav = $("#nav");
+
+        if(window.pageYOffset > 80) {
+            kv.slideUp(800);
+        }else if(window.pageYOffset === 0) {
+            kv.slideDown(200);
+        }
+
     });
     </script>
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light" id="nav">
         <div class="Header-nav" id="navbarSupportedContent">
             <div style="float:left" class="Header-branding">
                 <a class="image" href="#"><img class="Header-branding-logo" src="edumus_logo_pink.png" alt="logo" /></a>
