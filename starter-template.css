@@ -108,18 +108,6 @@ blockquote::after {
     color: #1c4f38;
 }
 
-.curriculums {
-    text-align: center;
-    color: #1c4d37;
-    font-family: 'Noe Display';
-    font-weight: bold;
-    font-style: normal;
-    font-size: 34px;
-    letter-spacing: -.01em;
-    line-height: 1.2em;
-    margin-block-start: 1.3em;
-}
-
 .container {
     max-width: 960px;
     margin: 0px auto;
