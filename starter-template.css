@@ -145,17 +145,20 @@ blockquote::after {
 }
 
 .btn-course-filter {
-  background-color: #f26e74;
-  border: none;
-  width: 120px;
-  height: 60px;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1 px;
+  border-color: #f26e74;
+  height: 35px;
+  margin-left: 3px;
+  margin-right: 3px;
   text-align: center;
   outline: none;
   box-shadow: none !important;
 }
 
 .btn-course-filter.active {
-    background-color: #549974;
+    background-color: #f26e74;
     color: #fff;
 }
 
