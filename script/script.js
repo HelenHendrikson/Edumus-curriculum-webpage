@@ -9,14 +9,14 @@ $(document).ready(function () {
     .on("click", function () {
       let $this = $(this);
       $this.toggleClass("selected");
-      
+
       // deselect all filters except the toggle one
       filters.not($this).removeClass("selected");
-      
+
       // change toggle button state
       const isSelected = $this.hasClass('selected');
       //$this.css('background-color', isSelected ? 'red': '#fff');
-      
+
       if(isSelected) {
         currentCard = cards.filter(`.${this.id}`).hide(); // get selected subject cards and hide it first
         currentCard.slice(0, initialDisplayCardsCount).show(); // only show the first three cards
@@ -33,4 +33,19 @@ $(document).ready(function () {
   $(".load-more").click(function () {
     currentCard.filter(":hidden").slice(0, 6).slideDown();
   });
+});
+
+$(window).scroll(function (e) {
+    var kv = $("#keyVision");
+    var nav = $("#nav");
+
+    if(window.pageYOffset > 80) {
+        kv.slideUp(800);
+    } else if(window.pageYOffset === 0) {
+        kv.slideDown(200);
+    }
+});
+
+$(function() {
+    $('.link-mini-preview').miniPreview({ prefetch: 'none' });
 });
