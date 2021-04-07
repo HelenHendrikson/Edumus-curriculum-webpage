@@ -4,6 +4,14 @@ body {
     font-family: "HK Grotesk", sans-serif;
 }
 
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color:#fff;
+}
+
 li {
     float: right;
 }
@@ -157,7 +165,7 @@ blockquote::after {
   box-shadow: none !important;
 }
 
-.btn-course-filter.active {
+.btn-course-filter.selected {
     background-color: #f26e74;
     color: #fff;
 }

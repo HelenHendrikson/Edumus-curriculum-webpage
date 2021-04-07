@@ -6,7 +6,7 @@
     <title>Edumus</title>
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./starter-template.css" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script/jquery-3.6.0.min.js"></script>
 
     <script>
     $(window).scroll(function (e) {
@@ -67,245 +67,22 @@
     </div>
 
 
-        <div id="courses">
+        <div id="filters">
             <div class="starter-template text-center py-5 px-3">
 
-                <script>
-                    function onCourseClick(button, selector) {
-                        var one = document.querySelector(selector);
-                        var all = document.querySelectorAll('.courses-list');
-
-                        var isSelectedVisible = Array.from(one.classList).includes("show")
-                        var visibleCount = document.querySelectorAll('.courses-list.show').length;
-
-                        // Remove all btn active classes
-                        Array.from(document.querySelectorAll('.btn-course-filter')).forEach(function(el) {
-                            el.classList.remove('active');
-                        })
-
-                        if(isSelectedVisible && visibleCount === 1) {
-                            Array.from(all, function (el) {
-                                new bootstrap.Collapse(el, { toggle: false }).show();
-                            });
-                        } else {
-                            Array.from(all, function (el) {
-                                new bootstrap.Collapse(el, { toggle: false }).hide();
-                            });
-
-                            new bootstrap.Collapse(one, { toggle: false }).show();
-
-                            button.classList.add('active');
-                        }
-                    }
-                </script>
-
-                <button class="btn btn-course-filter" type="button" onClick="javascript:onCourseClick(this, '#arts')">Arts and PE</button>
-                <button class="btn btn-course-filter" type="button" onClick="javascript:onCourseClick(this, '#languages')">Languages & literature</button>
-                <button class="btn btn-course-filter" type="button" onClick="javascript:onCourseClick(this, '#sciences')">Natural Sciences</button>
-                <button class="btn btn-course-filter" type="button" onClick="javascript:onCourseClick(this, '#social')">Social Studies</button>
-                <button class="btn btn-course-filter" type="button" onClick="javascript:onCourseClick(this, '#technology')">Technology Studies</button>
+                <button class="btn btn-course-filter selected" type="button" id="arts">Arts and PE</button>
+                <button class="btn btn-course-filter" type="button" id="languages">Languages & literature</button>
+                <button class="btn btn-course-filter" type="button" id="sciences">Natural Sciences</button>
+                <button class="btn btn-course-filter" type="button" id="social">Social Studies</button>
+                <button class="btn btn-course-filter" type="button" id="technology">Technology Studies</button>
             </div>
+        </div>
         <main role="main" class="container">
-            <!-- Arts -->
-            <div id="arts" class="courses-list collapse show" data-bs-parent="#courses">
-                <div class="container card mb-3">
-                  <div class="row">
-                    <div class="col-md-3 g-0 text-center">
-                        <div class="card-body subject">
-                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                            <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 g-0">
-                      <div class="card-body">
-                        <h3 class="card-title">Art</h3>
-                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Gümnaasiumi kunstiõpe loob baasi kunsti ning visuaalkultuuri vormi- ja pildikeele mõistmiseks ning kultuuride mitmekesisuse väärtustamiseks, avades üldmõisted ja kontseptsioonid. Õppes on kandev osa eri ajastute kujutamislaadide võrdlusel ning kirjeldusmudelite loomisel.</p>
-                        <div class="more-line">
-                            <a href="https://oppekava.ee/gumnaasiumiharidus/kunstiained/kunst/" class="see-more-link" link=""><span>See More</span></a>
-                        </div>
+          <div class="cards">
 
-                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
-                    <div class="col-md-3 g-0 text-center">
-                        <div class="card-body subject">
-                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                            <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 g-0">
-                      <div class="card-body">
-                        <h3 class="card-title">Modern art</h3>
-                        <h5 class="course-author">Authors: Kristi Laanemäe, Jane Remm & Anneli Porri</h5>
-                        <p class="card-text">Valikkursus „Kunst nüüd“ on sissejuhatus kaasaegse kunsti küsimuste, meetodite, autori- ja vaatajapositsioonide juurde. 35-tunnine kursus gümnaasiumile ühendab kaasaegse maailma, õppimise ja nüüdiskunsti loomise, kogemise ja mõtestamise.  Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                        <div class="more-line">
-                            <a href="https://oppekava.innove.ee/wp-content/uploads/2020/07/G%C3%BCmnaasiumi-valikkursus_kunst-n%C3%BC%C3%BCd.pdf" class="see-more-link" link=""><span>See More</span></a>
-                        </div>
+                        <!-- Arts -->
 
-                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
-                    <div class="col-md-3 g-0 text-center">
-                        <div class="card-body subject">
-                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                            <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 g-0">
-                      <div class="card-body">
-                        <h3 class="card-title">Music</h3>
-                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Muusikaloos tutvutakse eri ajastute väljendusvahendite, stiilide, heliloojate ja interpreetidega ning luuakse seoseid mineviku ja nüüdisaja vahel. Nii muusikatunnis kui ka tunnivälises tegevuses kujundatakse õpilase isikupärast esinemisoskust ja ettevõtlikkust.</p>
-                        <div class="more-line">
-                            <a href="https://oppekava.ee/gumnaasiumiharidus/kunstiained/muusika/" class="see-more-link" link=""><span>See More</span></a>
-                        </div>
-
-                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
-                    <div class="col-md-3 g-0 text-center">
-                        <div class="card-body subject">
-                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                            <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 g-0">
-                      <div class="card-body">
-                        <h3 class="card-title">Physical Education</h3>
-                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Kehalist kasvatust õpetatakse viie kohustusliku ja kahe valikkursusena. Kohustuslikud kursused hõlmavad võimlemist, kergejõustikku, sportmänge (korv-, võrk- ja jalgpalli), millest koolil on kohustus õpetada kahte, tantsulist liikumist, orienteerumist ning talialasid (suusatamist ja uisutamist), millest koolil on kohustus õpetada ühte.</p>
-                        <div class="more-line">
-                            <a href="https://oppekava.ee/gumnaasiumiharidus/kehaline-kasvatus/" class="see-more-link" link=""><span>See More</span></a>
-                        </div>
-
-                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-
-
-            <!-- Languages -->
-            <div id="languages" class="courses-list collapse show" data-bs-parent="#courses">
-                <div class="container card mb-3">
-                  <div class="row">
-                    <div class="col-md-3 g-0 text-center">
-                        <div class="card-body subject">
-                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                            <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 g-0">
-                      <div class="card-body">
-                        <h3 class="card-title">Drama</h3>
-                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Õppe vältel loetakse ning analüüsitakse draamateoseid, vaadatakse ja mõtestatakse ühiselt teatrietendusi ning täidetakse lihtsamaid dramatiseerimisülesandeid. Kursuse jooksul omandatakse nii teoreetilisi teadmisi kui ka praktilisi oskusi.</p>
-                        <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/keel-ja-kirjandus/kirjandus/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
-                    <div class="col-md-3 g-0 text-center">
-                        <div class="card-body subject">
-                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                            <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 g-0">
-                      <div class="card-body">
-                        <h3 class="card-title">English</h3>
-                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Õpetuses rakendatakse kommunikatiivse keeleõppe põhimõtteid ning aktiivõppemeetodeid. Rõhk on interaktiivsel õppimisel ja õpitava keele kasutamisel. Kommunikatiivne keeleoskus (suhtluspädevus2) hõlmab kolme komponenti: keelelist, sotsiolingvistilist ja pragmaatilist.</p>
-                        <div class="more-line"><a href="https://oppekava.ee/b-1-keeleoskustasemega-voorkeele-ope-gumnaasiumis/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
-                    <div class="col-md-3 g-0 text-center">
-                        <div class="card-body subject">
-                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                            <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 g-0">
-                      <div class="card-body">
-                        <h3 class="card-title">Estonian</h3>
-                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Eesti keele kui õppeaine sisu jaguneb kaheks valdkonnaks: keeleteadmisteks ning praktiliseks keeleoskuseks. Eesti keele kursustega püütakse tekitada õpilastes huvi filoloogia vastu laiemalt ning anda neile baasteadmistega võrdses mahus praktilisi oskusi.</p>
-                        <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/keel-ja-kirjandus/eesti-keel/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
-                    <div class="col-md-3 g-0 text-center">
-                        <div class="card-body subject">
-                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                            <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 g-0">
-                      <div class="card-body">
-                        <h3 class="card-title">Finnish</h3>
-                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Soome keele õppimine ja õpetamine üldhariduskoolis on põhjendatud pidevate kontaktidega hõimurahvaste vahel. Iga keel on kultuurikandja. Soome keelt õppides on õpilasel võimalik tutvuda naaberrahva kultuuri ja kommetega, et selle kaudu õppida hindama ka oma maa traditsioone.</p>
-                        <div class="more-line"><a href="https://oppekava.ee/a2-keeleoskustasemel-voorkeel-e-c-voorkeel/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                      </div>
-                      </div>
-                      </div>
-                      </div>
-                        <div class="container card mb-3">
+                        <div class="arts container card mb-3">
                           <div class="row">
                             <div class="col-md-3 g-0 text-center">
                                 <div class="card-body subject">
@@ -313,23 +90,312 @@
                                     <div class="info course-info">
                                         <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
                                         <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Art</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Gümnaasiumi kunstiõpe loob baasi kunsti ning visuaalkultuuri vormi- ja pildikeele mõistmiseks ning kultuuride mitmekesisuse väärtustamiseks, avades üldmõisted ja kontseptsioonid. Õppes on kandev osa eri ajastute kujutamislaadide võrdlusel ning kirjeldusmudelite loomisel.</p>
+                                <div class="more-line">
+                                    <a href="https://oppekava.ee/gumnaasiumiharidus/kunstiained/kunst/" class="see-more-link" link=""><span>See More</span></a>
+                                </div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="arts container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Modern art</h3>
+                                <h5 class="course-author">Authors: Kristi Laanemäe, Jane Remm & Anneli Porri</h5>
+                                <p class="card-text">Valikkursus „Kunst nüüd“ on sissejuhatus kaasaegse kunsti küsimuste, meetodite, autori- ja vaatajapositsioonide juurde. 35-tunnine kursus gümnaasiumile ühendab kaasaegse maailma, õppimise ja nüüdiskunsti loomise, kogemise ja mõtestamise.  Koolidele kehtib lisatasu 100€ õppeaastas.</p>
+                                <div class="more-line">
+                                    <a href="https://oppekava.innove.ee/wp-content/uploads/2020/07/G%C3%BCmnaasiumi-valikkursus_kunst-n%C3%BC%C3%BCd.pdf" class="see-more-link" link=""><span>See More</span></a>
+                                </div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="arts container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Music</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Muusikaloos tutvutakse eri ajastute väljendusvahendite, stiilide, heliloojate ja interpreetidega ning luuakse seoseid mineviku ja nüüdisaja vahel. Nii muusikatunnis kui ka tunnivälises tegevuses kujundatakse õpilase isikupärast esinemisoskust ja ettevõtlikkust.</p>
+                                <div class="more-line">
+                                    <a href="https://oppekava.ee/gumnaasiumiharidus/kunstiained/muusika/" class="see-more-link" link=""><span>See More</span></a>
+                                </div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="arts container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Physical Education</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Kehalist kasvatust õpetatakse viie kohustusliku ja kahe valikkursusena. Kohustuslikud kursused hõlmavad võimlemist, kergejõustikku, sportmänge (korv-, võrk- ja jalgpalli), millest koolil on kohustus õpetada kahte, tantsulist liikumist, orienteerumist ning talialasid (suusatamist ja uisutamist), millest koolil on kohustus õpetada ühte.</p>
+                                <div class="more-line">
+                                    <a href="https://oppekava.ee/gumnaasiumiharidus/kehaline-kasvatus/" class="see-more-link" link=""><span>See More</span></a>
+                                </div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+        
+        
+        
+                    <!-- Languages -->
+        
+                        <div class="languages container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Drama</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Õppe vältel loetakse ning analüüsitakse draamateoseid, vaadatakse ja mõtestatakse ühiselt teatrietendusi ning täidetakse lihtsamaid dramatiseerimisülesandeid. Kursuse jooksul omandatakse nii teoreetilisi teadmisi kui ka praktilisi oskusi.</p>
+                                <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/keel-ja-kirjandus/kirjandus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="languages container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">English</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Õpetuses rakendatakse kommunikatiivse keeleõppe põhimõtteid ning aktiivõppemeetodeid. Rõhk on interaktiivsel õppimisel ja õpitava keele kasutamisel. Kommunikatiivne keeleoskus (suhtluspädevus2) hõlmab kolme komponenti: keelelist, sotsiolingvistilist ja pragmaatilist.</p>
+                                <div class="more-line"><a href="https://oppekava.ee/b-1-keeleoskustasemega-voorkeele-ope-gumnaasiumis/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="languages container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Estonian</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Eesti keele kui õppeaine sisu jaguneb kaheks valdkonnaks: keeleteadmisteks ning praktiliseks keeleoskuseks. Eesti keele kursustega püütakse tekitada õpilastes huvi filoloogia vastu laiemalt ning anda neile baasteadmistega võrdses mahus praktilisi oskusi.</p>
+                                <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/keel-ja-kirjandus/eesti-keel/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="languages container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Finnish</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Soome keele õppimine ja õpetamine üldhariduskoolis on põhjendatud pidevate kontaktidega hõimurahvaste vahel. Iga keel on kultuurikandja. Soome keelt õppides on õpilasel võimalik tutvuda naaberrahva kultuuri ja kommetega, et selle kaudu õppida hindama ka oma maa traditsioone.</p>
+                                <div class="more-line"><a href="https://oppekava.ee/a2-keeleoskustasemel-voorkeel-e-c-voorkeel/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                              </div>
+                              </div>
+                        </div>
+                        <div class="languages container card mb-3">
+                                  <div class="row">
+                                    <div class="col-md-3 g-0 text-center">
+                                        <div class="card-body subject">
+                                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                            <div class="info course-info">
+                                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+        
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-9 g-0">
+                          <div class="card-body">
+                            <h3 class="card-title">French</h3>
+                            <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                            <p class="card-text">Õppeprotsessis kasutatakse kommunikatiivse keeleõppe põhimõtteid ning aktiivõppemeetodeid. Rakendatakse paaris- ja rühmatööd, toetatakse võõrkeelse suhtlus- ja esinemisoskuse väljakujunemist (nt referaadid, esitlused, sh multimeedia, suhtlusportaalid, blogid). Õpilasi ergutatakse kasutama keelt ka väljaspool keeletunde.</p>
+                            <div class="more-line"><a href="https://oppekava.ee/a2-keeleoskustasemel-voorkeel-e-c-voorkeel/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                            <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                          </div>
+                        </div>
+                      </div>
+                        </div>
+                        <div class="languages container card mb-3">
+                      <div class="row">
+                        <div class="col-md-3 g-0 text-center">
+                            <div class="card-body subject">
+                                <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                <div class="info course-info">
+                                    <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                    <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9 g-0">
+                          <div class="card-body">
+                            <h3 class="card-title">German</h3>
+                            <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                            <p class="card-text">Õppeprotsessis kasutatakse kommunikatiivse keeleõppe põhimõtteid ning aktiivõppemeetodeid. Rakendatakse paaris- ja rühmatööd, toetatakse võõrkeelse suhtlus- ja esinemisoskuse väljakujunemist (nt referaadid, esitlused, sh multimeedia, suhtlusportaalid, blogid). Õpilasi ergutatakse kasutama keelt ka väljaspool keeletunde.</p>
+                            <div class="more-line"><a href="https://oppekava.ee/a2-keeleoskustasemel-voorkeel-e-c-voorkeel/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                            <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                          </div>
+                        </div>
+                      </div>
+                        </div>
+                        <div class="languages container card mb-3">
+                      <div class="row">
+                        <div class="col-md-3 g-0 text-center">
+                            <div class="card-body subject">
+                                <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                <div class="info course-info">
+                                    <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                    <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="col-md-9 g-0">
+                      <div class="card-body">
+                        <h3 class="card-title">Literature</h3>
+                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                        <p class="card-text">Keel on rahvuskultuuri ja rahvusliku identiteedi kandja. Keele valdamine kõnes ja kirjas on inimese mõtlemisvõime kujunemise, vaimse arengu ning sotsialiseerumise alus ja eeldus. Eesti/vene keele hea valdamine on eduka õppimise eeldus kõigis õppeaineis.</p>
+                        <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/keel-ja-kirjandus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                      </div>
                     </div>
                   </div>
-                </div>
+                        </div>
+                        <div class="languages container card mb-3">
+                  <div class="row">
+                    <div class="col-md-3 g-0 text-center">
+                        <div class="card-body subject">
+                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                            <div class="info course-info">
+                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 g-0">
+                      <div class="card-body">
+                        <h3 class="card-title">Literature and film</h3>
+                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                        <p class="card-text">Keel on rahvuskultuuri ja rahvusliku identiteedi kandja. Keele valdamine kõnes ja kirjas on inimese mõtlemisvõime kujunemise, vaimse arengu ning sotsialiseerumise alus ja eeldus. Eesti/vene keele hea valdamine on eduka õppimise eeldus kõigis õppeaineis.</p>
+                        <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/keel-ja-kirjandus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                      </div>
+                    </div>
+                  </div>
+                        </div>
+                        <div class="languages container card mb-3">
+                  <div class="row">
+                    <div class="col-md-3 g-0 text-center">
+                        <div class="card-body subject">
+                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                            <div class="info course-info">
+                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                            </div>
+                        </div>
+                    </div>
                 <div class="col-md-9 g-0">
                   <div class="card-body">
-                    <h3 class="card-title">French</h3>
+                    <h3 class="card-title">Literature and society</h3>
                     <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                    <p class="card-text">Õppeprotsessis kasutatakse kommunikatiivse keeleõppe põhimõtteid ning aktiivõppemeetodeid. Rakendatakse paaris- ja rühmatööd, toetatakse võõrkeelse suhtlus- ja esinemisoskuse väljakujunemist (nt referaadid, esitlused, sh multimeedia, suhtlusportaalid, blogid). Õpilasi ergutatakse kasutama keelt ka väljaspool keeletunde.</p>
-                    <div class="more-line"><a href="https://oppekava.ee/a2-keeleoskustasemel-voorkeel-e-c-voorkeel/" class="see-more-link" link=""><span>See More</span></a></div>
-
+                    <p class="card-text">Keel on rahvuskultuuri ja rahvusliku identiteedi kandja. Keele valdamine kõnes ja kirjas on inimese mõtlemisvõime kujunemise, vaimse arengu ning sotsialiseerumise alus ja eeldus. Eesti/vene keele hea valdamine on eduka õppimise eeldus kõigis õppeaineis.</p>
+                    <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/keel-ja-kirjandus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
                     <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="container card mb-3">
+                        </div>
+                        <div class="languages container card mb-3">
               <div class="row">
                 <div class="col-md-3 g-0 text-center">
                     <div class="card-body subject">
@@ -342,17 +408,17 @@
                 </div>
                 <div class="col-md-9 g-0">
                   <div class="card-body">
-                    <h3 class="card-title">German</h3>
+                    <h3 class="card-title">Modern Russian literature</h3>
                     <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                    <p class="card-text">Õppeprotsessis kasutatakse kommunikatiivse keeleõppe põhimõtteid ning aktiivõppemeetodeid. Rakendatakse paaris- ja rühmatööd, toetatakse võõrkeelse suhtlus- ja esinemisoskuse väljakujunemist (nt referaadid, esitlused, sh multimeedia, suhtlusportaalid, blogid). Õpilasi ergutatakse kasutama keelt ka väljaspool keeletunde.</p>
-                    <div class="more-line"><a href="https://oppekava.ee/a2-keeleoskustasemel-voorkeel-e-c-voorkeel/" class="see-more-link" link=""><span>See More</span></a></div>
-
+                    <p class="card-text">Keel on rahvuskultuuri ja rahvusliku identiteedi kandja. Keele valdamine kõnes ja kirjas on inimese mõtlemisvõime kujunemise, vaimse arengu ning sotsialiseerumise alus ja eeldus. Eesti/vene keele hea valdamine on eduka õppimise eeldus kõigis õppeaineis.</p>
+                    <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/keel-ja-kirjandus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
                     <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="container card mb-3">
+                        </div>
+                        <div class="languages container card mb-3">
               <div class="row">
                 <div class="col-md-3 g-0 text-center">
                     <div class="card-body subject">
@@ -365,17 +431,17 @@
                 </div>
             <div class="col-md-9 g-0">
               <div class="card-body">
-                <h3 class="card-title">Literature</h3>
+                <h3 class="card-title">Myths and literature</h3>
                 <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
                 <p class="card-text">Keel on rahvuskultuuri ja rahvusliku identiteedi kandja. Keele valdamine kõnes ja kirjas on inimese mõtlemisvõime kujunemise, vaimse arengu ning sotsialiseerumise alus ja eeldus. Eesti/vene keele hea valdamine on eduka õppimise eeldus kõigis õppeaineis.</p>
                 <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/keel-ja-kirjandus/" class="see-more-link" link=""><span>See More</span></a></div>
-
+        
                 <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
               </div>
             </div>
           </div>
-        </div>
-        <div class="container card mb-3">
+                        </div>
+                        <div class="languages container card mb-3">
           <div class="row">
             <div class="col-md-3 g-0 text-center">
                 <div class="card-body subject">
@@ -388,17 +454,17 @@
             </div>
             <div class="col-md-9 g-0">
               <div class="card-body">
-                <h3 class="card-title">Literature and film</h3>
+                <h3 class="card-title">Russian</h3>
                 <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                <p class="card-text">Keel on rahvuskultuuri ja rahvusliku identiteedi kandja. Keele valdamine kõnes ja kirjas on inimese mõtlemisvõime kujunemise, vaimse arengu ning sotsialiseerumise alus ja eeldus. Eesti/vene keele hea valdamine on eduka õppimise eeldus kõigis õppeaineis.</p>
-                <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/keel-ja-kirjandus/" class="see-more-link" link=""><span>See More</span></a></div>
-
+                <p class="card-text">Keeleoskus võimaldab mõista ja väärtustada rahvuskultuuri. Vene keele hea valdamine on eduka õppimise eeldus kõigis õppeainetes vene õppekeelega koolis. Ainevaldkonna õppeained toetavad eeskätt põhikooliõpilaste emakeele- ja kirjanduspädevuse ning kommunikatiivsete oskuste arengut.</p>
+                <div class="more-line"><a href="https://oppekava.ee/pohiharidus/keel-ja-kirjandus/vene-keel/" class="see-more-link" link=""><span>See More</span></a></div>
+        
                 <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
               </div>
             </div>
           </div>
-        </div>
-        <div class="container card mb-3">
+                        </div>
+                        <div class="languages container card mb-3">
           <div class="row">
             <div class="col-md-3 g-0 text-center">
                 <div class="card-body subject">
@@ -411,18 +477,18 @@
             </div>
         <div class="col-md-9 g-0">
           <div class="card-body">
-            <h3 class="card-title">Literature and society</h3>
+            <h3 class="card-title">Speech and negotiation</h3>
             <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-            <p class="card-text">Keel on rahvuskultuuri ja rahvusliku identiteedi kandja. Keele valdamine kõnes ja kirjas on inimese mõtlemisvõime kujunemise, vaimse arengu ning sotsialiseerumise alus ja eeldus. Eesti/vene keele hea valdamine on eduka õppimise eeldus kõigis õppeaineis.</p>
-            <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/keel-ja-kirjandus/" class="see-more-link" link=""><span>See More</span></a></div>
-
+            <p class="card-text">Õppeaines käsitletakse põhjalikult keele ülesandeid ühiskonnas: kuidas keel toimib märgisüsteemina, milline on eesti keel teiste maailma keeltega võrreldes oma ehituse ja iseärasuste poolest, mis on eesti murded ning kuidas on eesti kirjakeel ajalooliselt nende põhjal kujunenud.</p>
+            <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/keel-ja-kirjandus/eesti-keel/" class="see-more-link" link=""><span>See More</span></a></div>
+        
             <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="container card mb-3">
-      <div class="row">
+        </div>
+                        </div>
+                        <div class="languages container card mb-3">
+        <div class="row">
         <div class="col-md-3 g-0 text-center">
             <div class="card-body subject">
                 <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
@@ -434,18 +500,18 @@
         </div>
         <div class="col-md-9 g-0">
           <div class="card-body">
-            <h3 class="card-title">Modern Russian literature</h3>
+            <h3 class="card-title">Swedish</h3>
             <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-            <p class="card-text">Keel on rahvuskultuuri ja rahvusliku identiteedi kandja. Keele valdamine kõnes ja kirjas on inimese mõtlemisvõime kujunemise, vaimse arengu ning sotsialiseerumise alus ja eeldus. Eesti/vene keele hea valdamine on eduka õppimise eeldus kõigis õppeaineis.</p>
-            <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/keel-ja-kirjandus/" class="see-more-link" link=""><span>See More</span></a></div>
-
+            <p class="card-text">Õppeprotsessis kasutatakse kommunikatiivse keeleõppe põhimõtteid ning aktiivõppemeetodeid. Rakendatakse paaris- ja rühmatööd, toetatakse võõrkeelse suhtlus- ja esinemisoskuse väljakujunemist (nt referaadid, esitlused, sh multimeedia, suhtlusportaalid, blogid). Õpilasi ergutatakse kasutama keelt ka väljaspool keeletunde.</p>
+            <div class="more-line"><a href="https://oppekava.ee/a2-keeleoskustasemel-voorkeel-e-c-voorkeel/" class="see-more-link" link=""><span>See More</span></a></div>
+        
             <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="container card mb-3">
-      <div class="row">
+        </div>
+                        </div>
+                        <div class="languages container card mb-3">
+        <div class="row">
         <div class="col-md-3 g-0 text-center">
             <div class="card-body subject">
                 <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
@@ -455,117 +521,672 @@
                 </div>
             </div>
         </div>
-    <div class="col-md-9 g-0">
-      <div class="card-body">
-        <h3 class="card-title">Myths and literature</h3>
-        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-        <p class="card-text">Keel on rahvuskultuuri ja rahvusliku identiteedi kandja. Keele valdamine kõnes ja kirjas on inimese mõtlemisvõime kujunemise, vaimse arengu ning sotsialiseerumise alus ja eeldus. Eesti/vene keele hea valdamine on eduka õppimise eeldus kõigis õppeaineis.</p>
-        <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/keel-ja-kirjandus/" class="see-more-link" link=""><span>See More</span></a></div>
-
-        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container card mb-3">
-  <div class="row">
-    <div class="col-md-3 g-0 text-center">
-        <div class="card-body subject">
-            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-            <div class="info course-info">
-                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-            </div>
+        <div class="col-md-9 g-0">
+          <div class="card-body">
+            <h3 class="card-title">World Literature</h3>
+            <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+            <p class="card-text">Kirjandusõpetus juhindub õppeainesisesest lõimingust, kus mitmesugused keelelised, teaduslikud, ajaloolised ja kultuurilised teadmised ning oskused on omavahel täiendussuhtes, kuid pöörab tähelepanu ka ainetevahelisele lõimingule, aidates paremini aru saada kunstist, muusikast, teatrist, filmist, pärimuskultuurist ning tänapäeva kultuurist laiemaltki.</p>
+            <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/keel-ja-kirjandus/kirjandus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+            <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+          </div>
         </div>
-    </div>
-    <div class="col-md-9 g-0">
-      <div class="card-body">
-        <h3 class="card-title">Russian</h3>
-        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-        <p class="card-text">Keeleoskus võimaldab mõista ja väärtustada rahvuskultuuri. Vene keele hea valdamine on eduka õppimise eeldus kõigis õppeainetes vene õppekeelega koolis. Ainevaldkonna õppeained toetavad eeskätt põhikooliõpilaste emakeele- ja kirjanduspädevuse ning kommunikatiivsete oskuste arengut.</p>
-        <div class="more-line"><a href="https://oppekava.ee/pohiharidus/keel-ja-kirjandus/vene-keel/" class="see-more-link" link=""><span>See More</span></a></div>
-
-        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container card mb-3">
-  <div class="row">
-    <div class="col-md-3 g-0 text-center">
-        <div class="card-body subject">
-            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-            <div class="info course-info">
-                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-            </div>
         </div>
-    </div>
-<div class="col-md-9 g-0">
-  <div class="card-body">
-    <h3 class="card-title">Speech and negotiation</h3>
-    <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-    <p class="card-text">Õppeaines käsitletakse põhjalikult keele ülesandeid ühiskonnas: kuidas keel toimib märgisüsteemina, milline on eesti keel teiste maailma keeltega võrreldes oma ehituse ja iseärasuste poolest, mis on eesti murded ning kuidas on eesti kirjakeel ajalooliselt nende põhjal kujunenud.</p>
-    <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/keel-ja-kirjandus/eesti-keel/" class="see-more-link" link=""><span>See More</span></a></div>
-
-    <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-  </div>
-</div>
-</div>
-</div>
-<div class="container card mb-3">
-<div class="row">
-<div class="col-md-3 g-0 text-center">
-    <div class="card-body subject">
-        <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-        <div class="info course-info">
-            <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-            <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-        </div>
-    </div>
-</div>
-<div class="col-md-9 g-0">
-  <div class="card-body">
-    <h3 class="card-title">Swedish</h3>
-    <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-    <p class="card-text">Õppeprotsessis kasutatakse kommunikatiivse keeleõppe põhimõtteid ning aktiivõppemeetodeid. Rakendatakse paaris- ja rühmatööd, toetatakse võõrkeelse suhtlus- ja esinemisoskuse väljakujunemist (nt referaadid, esitlused, sh multimeedia, suhtlusportaalid, blogid). Õpilasi ergutatakse kasutama keelt ka väljaspool keeletunde.</p>
-    <div class="more-line"><a href="https://oppekava.ee/a2-keeleoskustasemel-voorkeel-e-c-voorkeel/" class="see-more-link" link=""><span>See More</span></a></div>
-
-    <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-  </div>
-</div>
-</div>
-</div>
-<div class="container card mb-3">
-<div class="row">
-<div class="col-md-3 g-0 text-center">
-    <div class="card-body subject">
-        <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-        <div class="info course-info">
-            <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-            <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-        </div>
-    </div>
-</div>
-<div class="col-md-9 g-0">
-  <div class="card-body">
-    <h3 class="card-title">World Literature</h3>
-    <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-    <p class="card-text">Kirjandusõpetus juhindub õppeainesisesest lõimingust, kus mitmesugused keelelised, teaduslikud, ajaloolised ja kultuurilised teadmised ning oskused on omavahel täiendussuhtes, kuid pöörab tähelepanu ka ainetevahelisele lõimingule, aidates paremini aru saada kunstist, muusikast, teatrist, filmist, pärimuskultuurist ning tänapäeva kultuurist laiemaltki.</p>
-    <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/keel-ja-kirjandus/kirjandus/" class="see-more-link" link=""><span>See More</span></a></div>
-
-    <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-  </div>
-</div>
-</div>
-</div>
-            </div>
-
-
-            <!-- Natural sciences -->
-            <div id="sciences" class="courses-list collapse show" data-bs-parent="#courses">
-                <div class="container card mb-3">
-                  <div class="row">
+                        </div>
+        
+        
+                    <!-- Natural sciences -->
+                        <div class="sciences container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Applied biology</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Rakendusbioloogial on oluline koht õpilaste loodusteaduste- ja tehnoloogiaalase kirjaoskuse kujunemises. Kursus tugineb bioloogia kohustuslikes kursustes saadud teadmistele, oskustele ja hoiakutele ning seostub gümnaasiumi keemias, geograafias, füüsikas, matemaatikas ja teistes õppeainetes õpitavaga. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
+                                <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Rakendusbioloogia.pdf" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sciences container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Biology</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Bioloogia õppimisel saadakse probleemülesannete lahendamise kaudu tervikülevaade elu mitmekesisuse, organismide ehituse ja talitluse, pärilikkuse, evolutsiooni, ökoloogia ning keskkonnakaitse ja rakendusbioloogia alustest.</p>
+                                <div class="more-line"><a href="https://oppekava.ee/pohiharidus/loodusained/bioloogia/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sciences container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Chemistry</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Keemial on kaalukas koht õpilaste loodusteaduste- ja tehnoloogiaalase kirjaoskuse kujunemises. Gümnaasiumi keemia tugineb põhikoolis omandatud teadmistele, oskustele ja hoiakutele ning seostub gümnaasiumi füüsikas, bioloogias, matemaatikas jt õppeainetes õpitavaga, toetades samaaegu teiste õppeainete õpet.</p>
+                                <div class="more-line"><a href="https://oppekava.ee/pohiharidus/loodusained/keemia/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sciences container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Elements chemistry</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Valikkursus süvendab gümnaasiumi kohustuslikes keemiakursustes omandatud teadmisi, oskusi ja vilumusi, võimaldab sügavamalt mõista keemiliste protsesside üldisi seaduspärasusi, avardada silmaringi meie ümber ja meis endis esinevate ainete ning nendega toimuvate keemiliste protsesside kohta.</p>
+                                <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Elementide_keemia.pdf" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sciences container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Geography</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Geograafiat õppides kujuneb õpilastel arusaam Maast kui süsteemist, looduses ja ühiskonnas esinevatest nähtustest ja protsessidest, nende ruumilisest levikust ning vastastikustest seostest. Aine õpetamisel on rõhk keskkonna ja inimtegevuse vastastikustest seostest arusaamisel.</p>
+                                <div class="more-line"><a href="https://oppekava.ee/pohiharidus/loodusained/geograafia/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sciences container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Geoinformatics</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Geoinformaatika valikkursuses tutvutakse geoinfosüsteemide olemusega, saadakse ülevaade maailmas ja Eestis kasutatavatest veebipõhistest geoinfosüsteemidest ning nende rakendustest.</p>
+                                <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Geoinformaatika.pdf" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sciences container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Globalising world</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Kursus võimaldab süvendatult arutada eri regioonide aktuaalseid probleeme arenenud ja arengumaade näiteil. Maailma loodusliku, kultuurilise, demograafilise ja majandusliku mitmekesisuse ning eripära tundmine lubab toime tulla globaliseeruvas maailmas.</p>
+                                <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Globaliseeruv_maailm.pdf" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sciences container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Life chemistry</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Valikkursus võimaldab õpilastel eluslooduses kulgevate keemiliste protsesside seaduspärasusi sügavamalt mõista, selgitada ja prognoosida. Taotletakse õpilaste keemiaalase ja üldise loodusteadusliku maailmapildi avardumist.</p>
+                                <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Elu_keemia.pdf" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sciences container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Maths</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Matemaatika tegeleb mudelitega, seoste kirjeldamise ning meetodite väljatöötamisega. Põhikooli matemaatikaõpetus annab õpilastele valmisoleku mõista ning kirjeldada loogilisi, kvantitatiivseid ja ruumilisi seoseid.</p>
+                                <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/matemaatika/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sciences container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Nature studies</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Loodusõpetus on integreeritud õppeaine, mis kujundab baasteadmised ja -oskused teiste loodusteadusainete (bioloogia, füüsika, loodusgeograafia, keemia) õppimiseks.</p>
+                                <div class="more-line"><a href="https://oppekava.ee/pohiharidus/loodusained-2/loodusopetus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sciences container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Other physics</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Kursus on üles ehitatud õpilasele jõukohaste mikromaailma füüsika ja/või kosmoloogia probleemide lahendamisele. Õpilast juhendatakse tegema konkreetse probleemiga seonduvaid põhjendatud ja kompetentseid otsuseid.</p>
+                                <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Teistsugune_fyysika.pdf" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sciences container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Physics</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Füüsika kuulub loodusteaduste hulka, olles väga tihedas seoses matemaatikaga. Füüsika paneb aluse tehnika ja tehnoloogia mõistmisele ning aitab väärtustada tehnikaga seotud elukutseid.</p>
+                                <div class="more-line"><a href="https://oppekava.ee/pohiharidus/loodusained/fuusika/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sciences container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Physics and technology</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Kursus on üles ehitatud õpilasele jõukohaste füüsikalis-tehnoloogiliste probleemide lahendamisele. Õpilane teeb konkreetse probleemiga seonduvaid põhjendatud ja kompetentseid otsuseid.</p>
+                                <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Fyysika_ja_tehnika.pdf" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sciences container card mb-3">
+                          <div class="row">
+                            <div class="col-md-3 g-0 text-center">
+                                <div class="card-body subject">
+                                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                                    <div class="info course-info">
+                                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 g-0">
+                              <div class="card-body">
+                                <h3 class="card-title">Rules of chemical processes</h3>
+                                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                                <p class="card-text">Keemia valikkursus tugineb gümnaasiumi kohustuslikes keemiakursustes omandatud teadmistele, oskustele ja hoiakutele ning lõimub teistes loodusainetes õpitavaga, toetades samaaegu teiste õppeainete õpet. </p>
+                                <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Fyysika_ja_tehnika.pdf" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+        
+                    <!-- Social -->
+        
+                      <div class="social container card mb-3">
+                      <div class="row">
+                      <div class="col-md-3 g-0 text-center">
+                          <div class="card-body subject">
+                              <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                              <div class="info course-info">
+                                  <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                  <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 g-0">
+                        <div class="card-body">
+                          <h3 class="card-title">Career studies</h3>
+                          <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                          <p class="card-text">Valikõppeaine „Karjääriõpetus“ raames käsitletakse teemasid, mis kujundavad õpilases valmisolekut optimaalseks rakenduseks tööjõuturul, iseseisva otsustamisvõime arendamiseks, erinevate elurollide täitmiseks ja elukestvaks õppeks. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
+                          <div class="more-line"><a href="https://oppekava.ee/ainevaldkondade-ulesed-valikkursused/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                          <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="social container card mb-3">
+                      <div class="row">
+                      <div class="col-md-3 g-0 text-center">
+                          <div class="card-body subject">
+                              <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                              <div class="info course-info">
+                                  <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                  <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 g-0">
+                        <div class="card-body">
+                          <h3 class="card-title">Citizenship practice</h3>
+                          <h5 class="course-author">Author: Aljona Galazan</h5>
+                          <p class="card-text">Kogukonnapraktika on üks viise rakendada kodanikuharidust üldhariduskoolis, kujundada noorte inimeste kodanikuhoiakut ja sotsiaalset närvi, aidates noortel arendada endas ühiskondlikku aktiivsust ja hoolivust kaaskodanike suhtes.</p>
+                          <div class="more-line"><a href="https://heakodanik.ee/wp-content/uploads/2017/05/Kogukonnapraktika-k%c3%a4siraamat_2016.pdf" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                          <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="social container card mb-3">
+                      <div class="row">
+                      <div class="col-md-3 g-0 text-center">
+                          <div class="card-body subject">
+                              <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                              <div class="info course-info">
+                                  <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                  <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 g-0">
+                        <div class="card-body">
+                          <h3 class="card-title">Citizenship studies</h3>
+                          <h5 class="course-author">Author: EMSL</h5>
+                          <p class="card-text">Kodanikuharidus on oskuste, teadmiste ja väärtushinnangute kujunemise protsess, mis toetab aktiivset ja vastutustundlikku ühiskonnaelus osalemist. Kodanikuks haritud inimene soovib, saab ja oskab oma elu juhtida, ühiskonnaelu mõjutada ja otsustes kaasa rääkida ning on seeläbi otseselt seotud vabatahtliku tegevusega.</p>
+                          <div class="more-line"><a href="https://heakodanik.ee/kodanikuharidus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                          <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="social container card mb-3">
+                      <div class="row">
+                      <div class="col-md-3 g-0 text-center">
+                          <div class="card-body subject">
+                              <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                              <div class="info course-info">
+                                  <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                  <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 g-0">
+                        <div class="card-body">
+                          <h3 class="card-title">Economics and entrepreneurship</h3>
+                          <h5 class="course-author">Author: Opiq</h5>
+                          <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine, tootmine ja teenused, turundus, tööjõud, konkurents. </p>
+                          <div class="more-line"><a href="https://www.opiq.ee/Kit/Details/116" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                          <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="social container card mb-3">
+                      <div class="row">
+                      <div class="col-md-3 g-0 text-center">
+                          <div class="card-body subject">
+                              <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                              <div class="info course-info">
+                                  <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                  <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 g-0">
+                        <div class="card-body">
+                          <h3 class="card-title">Family planning</h3>
+                          <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                          <p class="card-text">Inimeseõpetuse perekonnaõpetuse kursuses keskendutakse perekonnaelu psühholoogiale, sotsioloogiale, eetikale, perekonnaõigusele, majandamisele ja perekonna rollile ühiskonnas, et omandada vajalikud teadmised, oskused ja hoiakud tulevase perekonnaelu alusena.</p>
+                          <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/sotsiaalained/inimeseopetus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                          <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="social container card mb-3">
+                      <div class="row">
+                      <div class="col-md-3 g-0 text-center">
+                          <div class="card-body subject">
+                              <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                              <div class="info course-info">
+                                  <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                  <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 g-0">
+                        <div class="card-body">
+                          <h3 class="card-title">History</h3>
+                          <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                          <p class="card-text">Ajalooõpetus aitab õpilasel omandada kultuuriruumis ning ajalookeskkonnas orienteerumiseks vajalikke teadmisi ja oskusi ning teadvustada ja analüüsida minevikunähtuste muutlikkust, tõlgendatavust, omavahelisi seoseid ning seoseid tänapäevaga.</p>
+                          <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/sotsiaalained/ajalugu/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                          <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="social container card mb-3">
+                      <div class="row">
+                      <div class="col-md-3 g-0 text-center">
+                          <div class="card-body subject">
+                              <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                              <div class="info course-info">
+                                  <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                  <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 g-0">
+                        <div class="card-body">
+                          <h3 class="card-title">Human geography</h3>
+                          <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                          <p class="card-text">Rahvastiku paiknemine ja tihedus, seda mõjutavad tegurid. Maailma rahvaarv ja selle muutumine. Demograafiline üleminek. Rahvastiku struktuur ja selle mõju riigi arengule.</p>
+                          <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/sotsiaalained/inimgeograafia/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                          <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="social container card mb-3">
+                      <div class="row">
+                      <div class="col-md-3 g-0 text-center">
+                          <div class="card-body subject">
+                              <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                              <div class="info course-info">
+                                  <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                  <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 g-0">
+                        <div class="card-body">
+                          <h3 class="card-title">Human studies</h3>
+                          <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                          <p class="card-text">Kursus toetab õpilase isiksuse arenemist, aitab mõtestada ja analüüsida oma rolli perekonnas, arendada vastutustunnet nii isiklikus kui ka ühiskonnaelus. Perekonnaõpetuse kursus kujundab eelkõige õpilaste enesemääratlus-, sotsiaalset ja väärtuspädevust.</p>
+                          <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/sotsiaalained/inimeseopetus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                          <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="social container card mb-3">
+                      <div class="row">
+                      <div class="col-md-3 g-0 text-center">
+                          <div class="card-body subject">
+                              <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                              <div class="info course-info">
+                                  <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                  <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 g-0">
+                        <div class="card-body">
+                          <h3 class="card-title">Introduction to law</h3>
+                          <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                          <p class="card-text">Õppeaine eesmärk on luua eeldused, et kujuneks aktiivne ja kompetentne kodanik, kes suudab kohaneda muutustega, oskab ennast arenguga suhestada, oma kodanikupositsiooni kujundada ning on avatud uutele ideedele ja elukestvale õppimisele.</p>
+                          <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/sotsiaalained/uhiskonnaopetus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                          <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="social container card mb-3">
+                      <div class="row">
+                      <div class="col-md-3 g-0 text-center">
+                          <div class="card-body subject">
+                              <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                              <div class="info course-info">
+                                  <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                  <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 g-0">
+                        <div class="card-body">
+                          <h3 class="card-title">National defence</h3>
+                          <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                          <p class="card-text">Riigikaitseõpetusega taotletakse, et õpilased saavad põhiseadusest lähtuvalt teadlikuks oma riigikaitsealastest kohustustest ja õigustest ning ettekujutuse kaitseväeteenistuse liikidest.</p>
+                          <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/valikkursused/riigikaitse/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                          <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="social container card mb-3">
+                      <div class="row">
+                      <div class="col-md-3 g-0 text-center">
+                          <div class="card-body subject">
+                              <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                              <div class="info course-info">
+                                  <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                  <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 g-0">
+                        <div class="card-body">
+                          <h3 class="card-title">Philosophy</h3>
+                          <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                          <p class="card-text">Filosoofia ainevaldkonnas käsitletakse filosoofia mõisteid, valdkondi, harusid, ajalugu ja rolli teaduste seas. Filosoofilise mõtlemise viise harjutatakse nende korrektse rakendamise kaudu suulises ja kirjalikus vormis.</p>
+                          <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/valikkursused/filosoofia/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                          <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="social container card mb-3">
+                      <div class="row">
+                      <div class="col-md-3 g-0 text-center">
+                          <div class="card-body subject">
+                              <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                              <div class="info course-info">
+                                  <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                  <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 g-0">
+                        <div class="card-body">
+                          <h3 class="card-title">Psychology</h3>
+                          <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                          <p class="card-text">Kursus „Psühholoogia“ loob terviku, mõtestades seni omandatut kõrgemal tasemel, kusjuures rõhk on olulistel uurimustel ja katsetel, millega psühholoogilised teadmised on saadud.</p>
+                          <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/sotsiaalained/inimeseopetus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                          <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="social container card mb-3">
+                      <div class="row">
+                      <div class="col-md-3 g-0 text-center">
+                          <div class="card-body subject">
+                              <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                              <div class="info course-info">
+                                  <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                  <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 g-0">
+                        <div class="card-body">
+                          <h3 class="card-title">Religious studies</h3>
+                          <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                          <p class="card-text">Usundiõpetus lähtub ÜRO inimõiguste ülddeklaratsioonis sõnastatud usu- ja mõttevabaduse tunnistamise põhimõttest. Religioonialane haritus on usuvabaduse tagamise eeltingimusi ühiskonnas.</p>
+                          <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/valikkursused/usundiopetus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                          <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="social container card mb-3">
+                      <div class="row">
+                      <div class="col-md-3 g-0 text-center">
+                          <div class="card-body subject">
+                              <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
+                              <div class="info course-info">
+                                  <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
+                                  <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 g-0">
+                        <div class="card-body">
+                          <h3 class="card-title">Social studies</h3>
+                          <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
+                          <p class="card-text">Õpilased omandavad sotsiaalse kirjaoskuse, s.o teadmised, oskused ja hoiakud, mida on vaja, et tulla vastutustundlikult toime dünaamilises ning mitmekultuurilises keskkonnas.</p>
+                          <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/sotsiaalained/uhiskonnaopetus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
+                          <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+        
+                    <!-- Technology -->
+                    <div class="technology container card mb-3">
+                    <div class="row">
                     <div class="col-md-3 g-0 text-center">
                         <div class="card-body subject">
                             <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
@@ -577,18 +1198,18 @@
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Applied biology</h3>
+                        <h3 class="card-title">3D modelling</h3>
                         <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Rakendusbioloogial on oluline koht õpilaste loodusteaduste- ja tehnoloogiaalase kirjaoskuse kujunemises. Kursus tugineb bioloogia kohustuslikes kursustes saadud teadmistele, oskustele ja hoiakutele ning seostub gümnaasiumi keemias, geograafias, füüsikas, matemaatikas ja teistes õppeainetes õpitavaga. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                        <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Rakendusbioloogia.pdf" class="see-more-link" link=""><span>See More</span></a></div>
-
+                        <p class="card-text">Valikkursus põhineb kolmel oskusel: tehnilise joonestamise algtõdede omandamine; 3D-modelleerimistarkvara kasutamine toote loomiseks; arvuti teel juhitava CNC ehk arvprogrammjuhtimisega freespingi seadistamise algtõdede ning selle juhttarkvara kasutusoskuse omandamine. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
+                        <div class="more-line"><a href="https://oppekava.ee/ainevaldkondade-ulesed-valikkursused/" class="see-more-link" link=""><span>See More</span></a></div>
+        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
+                    </div>
+                    </div>
+                    <div class="technology container card mb-3">
+                    <div class="row">
                     <div class="col-md-3 g-0 text-center">
                         <div class="card-body subject">
                             <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
@@ -600,18 +1221,18 @@
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Biology</h3>
-                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Bioloogia õppimisel saadakse probleemülesannete lahendamise kaudu tervikülevaade elu mitmekesisuse, organismide ehituse ja talitluse, pärilikkuse, evolutsiooni, ökoloogia ning keskkonnakaitse ja rakendusbioloogia alustest.</p>
-                        <div class="more-line"><a href="https://oppekava.ee/pohiharidus/loodusained/bioloogia/" class="see-more-link" link=""><span>See More</span></a></div>
-
+                        <h3 class="card-title">Cyber security</h3>
+                        <h5 class="course-author">Author: Tartu Ülikool</h5>
+                        <p class="card-text">Digiohutuse õppematerjalide kogumik on mõeldud II kooliastme õpetajatele ja õpilastele digihügieeni teemade õpetamiseks ja õppimiseks. Eesmärgiks on tutvuda interneti ja erinevate tarkvarade kasutamise võimalustega ning ohutu suhtlemisega digivahendeid kasutades. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
+                        <div class="more-line"><a href="https://courses.cs.ut.ee/t/digiopik/Digih%c3%bcgieen/Digih%c3%bcgieen" class="see-more-link" link=""><span>See More</span></a></div>
+        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
+                    </div>
+                    </div>
+                    <div class="technology container card mb-3">
+                    <div class="row">
                     <div class="col-md-3 g-0 text-center">
                         <div class="card-body subject">
                             <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
@@ -623,18 +1244,18 @@
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Chemistry</h3>
+                        <h3 class="card-title">Drafting</h3>
                         <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Keemial on kaalukas koht õpilaste loodusteaduste- ja tehnoloogiaalase kirjaoskuse kujunemises. Gümnaasiumi keemia tugineb põhikoolis omandatud teadmistele, oskustele ja hoiakutele ning seostub gümnaasiumi füüsikas, bioloogias, matemaatikas jt õppeainetes õpitavaga, toetades samaaegu teiste õppeainete õpet.</p>
-                        <div class="more-line"><a href="https://oppekava.ee/pohiharidus/loodusained/keemia/" class="see-more-link" link=""><span>See More</span></a></div>
-
+                        <p class="card-text">Joonestamisel on praktilise tähtsusega koht õpilaste mõtlemise ja ruumikujutlusvõime arendamisel ning tehnika- ja tehnoloogiaalase graafilise kirjaoskuse kujunemisel. Kursus tugineb varasematele matemaatika, osaliselt ka kunsti ja tööõpetuse kohustuslikel kursustel omandatud teadmistele, oskustele ning hoiakutele.</p>
+                        <div class="more-line"><a href="https://oppekava.ee/ainevaldkondade-ulesed-valikkursused/#AinevaldkondadelenevalikkursusMehhatroonikajarobootika" class="see-more-link" link=""><span>See More</span></a></div>
+        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
+                    </div>
+                    </div>
+                    <div class="technology container card mb-3">
+                    <div class="row">
                     <div class="col-md-3 g-0 text-center">
                         <div class="card-body subject">
                             <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
@@ -646,18 +1267,18 @@
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Elements chemistry</h3>
+                        <h3 class="card-title">Handicrafts</h3>
                         <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Valikkursus süvendab gümnaasiumi kohustuslikes keemiakursustes omandatud teadmisi, oskusi ja vilumusi, võimaldab sügavamalt mõista keemiliste protsesside üldisi seaduspärasusi, avardada silmaringi meie ümber ja meis endis esinevate ainete ning nendega toimuvate keemiliste protsesside kohta.</p>
-                        <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Elementide_keemia.pdf" class="see-more-link" link=""><span>See More</span></a></div>
-
+                        <p class="card-text">Käsitöö ja kodunduse õpe lõimib teoreetilised teadmised igapäevaelus vajalike praktiliste oskustega. Käsitöö seos tarbekunstiga loob eeldused loominguliseks eneseteostuseks.</p>
+                        <div class="more-line"><a href="https://oppekava.ee/pohiharidus/tehnoloogia/kasitoo-ja-kodundus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
+                    </div>
+                    </div>
+                    <div class="technology container card mb-3">
+                    <div class="row">
                     <div class="col-md-3 g-0 text-center">
                         <div class="card-body subject">
                             <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
@@ -669,18 +1290,18 @@
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Geography</h3>
+                        <h3 class="card-title">Informatics</h3>
                         <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Geograafiat õppides kujuneb õpilastel arusaam Maast kui süsteemist, looduses ja ühiskonnas esinevatest nähtustest ja protsessidest, nende ruumilisest levikust ning vastastikustest seostest. Aine õpetamisel on rõhk keskkonna ja inimtegevuse vastastikustest seostest arusaamisel.</p>
-                        <div class="more-line"><a href="https://oppekava.ee/pohiharidus/loodusained/geograafia/" class="see-more-link" link=""><span>See More</span></a></div>
-
+                        <p class="card-text">Rakenduste loomise põhimõtteid ja põhifaase tutvustatakse praktilise töö kaudu, koostades mõningad projektid, mis sisaldavad modelleerimise, analüüsi ning disaini elemente.</p>
+                        <div class="more-line"><a href="https://oppekava.ee/ainevaldkondade-ulesed-valikkursused/#AinevaldkondadelenevalikkursusMehhatroonikajarobootika" class="see-more-link" link=""><span>See More</span></a></div>
+        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
+                    </div>
+                    </div>
+                    <div class="technology container card mb-3">
+                    <div class="row">
                     <div class="col-md-3 g-0 text-center">
                         <div class="card-body subject">
                             <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
@@ -692,18 +1313,18 @@
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Geoinformatics</h3>
+                        <h3 class="card-title">Mechatronics and robotics</h3>
                         <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Geoinformaatika valikkursuses tutvutakse geoinfosüsteemide olemusega, saadakse ülevaade maailmas ja Eestis kasutatavatest veebipõhistest geoinfosüsteemidest ning nende rakendustest.</p>
-                        <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Geoinformaatika.pdf" class="see-more-link" link=""><span>See More</span></a></div>
-
+                        <p class="card-text">Kursusel käsitletakse mehhatroonika- ja robootikasüsteemi põhimõisteid ning süstemaatikat, nende süsteemide kasutusvaldkondi ning eripära, seadmete projekteerimise üldisi aluseid.</p>
+                        <div class="more-line"><a href="https://oppekava.ee/ainevaldkondade-ulesed-valikkursused/#AinevaldkondadelenevalikkursusMehhatroonikajarobootika" class="see-more-link" link=""><span>See More</span></a></div>
+        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
+                    </div>
+                    </div>
+                    <div class="technology container card mb-3">
+                    <div class="row">
                     <div class="col-md-3 g-0 text-center">
                         <div class="card-body subject">
                             <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
@@ -715,18 +1336,18 @@
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Globalising world</h3>
+                        <h3 class="card-title">Technology studies</h3>
                         <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Kursus võimaldab süvendatult arutada eri regioonide aktuaalseid probleeme arenenud ja arengumaade näiteil. Maailma loodusliku, kultuurilise, demograafilise ja majandusliku mitmekesisuse ning eripära tundmine lubab toime tulla globaliseeruvas maailmas.</p>
-                        <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Globaliseeruv_maailm.pdf" class="see-more-link" link=""><span>See More</span></a></div>
-
+                        <p class="card-text">Õppe käigus omandatakse üldalused ja alusteave, mida on tarvis ülesannete lahendamiseks ja esemete valmistamiseks. Õppetundides lõimib aineõpetaja õppesisu praktilise tegevusega (puidutöö, metallitöö, elektroonika jm). </p>
+                        <div class="more-line"><a href="https://oppekava.ee/pohiharidus/tehnoloogia/" class="see-more-link" link=""><span>See More</span></a></div>
+        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
+                    </div>
+                    </div>
+                    <div class="technology container card mb-3">
+                    <div class="row">
                     <div class="col-md-3 g-0 text-center">
                         <div class="card-body subject">
                             <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
@@ -738,671 +1359,21 @@
                     </div>
                     <div class="col-md-9 g-0">
                       <div class="card-body">
-                        <h3 class="card-title">Life chemistry</h3>
+                        <h3 class="card-title">Woodwork</h3>
                         <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Valikkursus võimaldab õpilastel eluslooduses kulgevate keemiliste protsesside seaduspärasusi sügavamalt mõista, selgitada ja prognoosida. Taotletakse õpilaste keemiaalase ja üldise loodusteadusliku maailmapildi avardumist.</p>
-                        <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Elu_keemia.pdf" class="see-more-link" link=""><span>See More</span></a></div>
-
+                        <p class="card-text">Tööõpetust iseloomustab loov käeline aktiivsus, mis on oluline õpilaste füsioloogilises ja vaimses arengus. Tööülesannete valikul lähtutakse eesmärgist arendada õpilaste vaimseid ja füüsilisi võimeid: motoorikat, tähelepanu, silmamõõtu, ruumitaju, kujutlusvõimet jm. </p>
+                        <div class="more-line"><a href="https://oppekava.ee/pohiharidus/tehnoloogia/tooopetus/" class="see-more-link" link=""><span>See More</span></a></div>
+        
                         <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
-                    <div class="col-md-3 g-0 text-center">
-                        <div class="card-body subject">
-                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                            <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                            </div>
-                        </div>
                     </div>
-                    <div class="col-md-9 g-0">
-                      <div class="card-body">
-                        <h3 class="card-title">Maths</h3>
-                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Matemaatika tegeleb mudelitega, seoste kirjeldamise ning meetodite väljatöötamisega. Põhikooli matemaatikaõpetus annab õpilastele valmisoleku mõista ning kirjeldada loogilisi, kvantitatiivseid ja ruumilisi seoseid.</p>
-                        <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/matemaatika/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
-                    <div class="col-md-3 g-0 text-center">
-                        <div class="card-body subject">
-                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                            <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 g-0">
-                      <div class="card-body">
-                        <h3 class="card-title">Nature studies</h3>
-                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Loodusõpetus on integreeritud õppeaine, mis kujundab baasteadmised ja -oskused teiste loodusteadusainete (bioloogia, füüsika, loodusgeograafia, keemia) õppimiseks.</p>
-                        <div class="more-line"><a href="https://oppekava.ee/pohiharidus/loodusained-2/loodusopetus/" class="see-more-link" link=""><span>See More</span></a></div>
 
-                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
-                    <div class="col-md-3 g-0 text-center">
-                        <div class="card-body subject">
-                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                            <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 g-0">
-                      <div class="card-body">
-                        <h3 class="card-title">Other physics</h3>
-                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Kursus on üles ehitatud õpilasele jõukohaste mikromaailma füüsika ja/või kosmoloogia probleemide lahendamisele. Õpilast juhendatakse tegema konkreetse probleemiga seonduvaid põhjendatud ja kompetentseid otsuseid.</p>
-                        <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Teistsugune_fyysika.pdf" class="see-more-link" link=""><span>See More</span></a></div>
+          </div>
 
-                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
-                    <div class="col-md-3 g-0 text-center">
-                        <div class="card-body subject">
-                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                            <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 g-0">
-                      <div class="card-body">
-                        <h3 class="card-title">Physics</h3>
-                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Füüsika kuulub loodusteaduste hulka, olles väga tihedas seoses matemaatikaga. Füüsika paneb aluse tehnika ja tehnoloogia mõistmisele ning aitab väärtustada tehnikaga seotud elukutseid.</p>
-                        <div class="more-line"><a href="https://oppekava.ee/pohiharidus/loodusained/fuusika/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
-                    <div class="col-md-3 g-0 text-center">
-                        <div class="card-body subject">
-                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                            <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 g-0">
-                      <div class="card-body">
-                        <h3 class="card-title">Physics and technology</h3>
-                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Kursus on üles ehitatud õpilasele jõukohaste füüsikalis-tehnoloogiliste probleemide lahendamisele. Õpilane teeb konkreetse probleemiga seonduvaid põhjendatud ja kompetentseid otsuseid.</p>
-                        <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Fyysika_ja_tehnika.pdf" class="see-more-link" link=""><span>See More</span></a></div>
-
-                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="container card mb-3">
-                  <div class="row">
-                    <div class="col-md-3 g-0 text-center">
-                        <div class="card-body subject">
-                            <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                            <div class="info course-info">
-                                <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                                <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 g-0">
-                      <div class="card-body">
-                        <h3 class="card-title">Rules of chemical processes</h3>
-                        <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                        <p class="card-text">Keemia valikkursus tugineb gümnaasiumi kohustuslikes keemiakursustes omandatud teadmistele, oskustele ja hoiakutele ning lõimub teistes loodusainetes õpitavaga, toetades samaaegu teiste õppeainete õpet. </p>
-                        <div class="more-line"><a href="https://oppekava.innove.ee/wp-content/uploads/2019/04/VK_Fyysika_ja_tehnika.pdf" class="see-more-link" link=""><span>See More</span></a></div>
-
-                        <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-
-            <!-- Social -->
-            <div id="social" class="courses-list collapse show" data-bs-parent="#courses">
-              <div class="container card mb-3">
-              <div class="row">
-              <div class="col-md-3 g-0 text-center">
-                  <div class="card-body subject">
-                      <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                      <div class="info course-info">
-                          <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                          <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-9 g-0">
-                <div class="card-body">
-                  <h3 class="card-title">Career studies</h3>
-                  <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                  <p class="card-text">Valikõppeaine „Karjääriõpetus“ raames käsitletakse teemasid, mis kujundavad õpilases valmisolekut optimaalseks rakenduseks tööjõuturul, iseseisva otsustamisvõime arendamiseks, erinevate elurollide täitmiseks ja elukestvaks õppeks. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                  <div class="more-line"><a href="https://oppekava.ee/ainevaldkondade-ulesed-valikkursused/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                  <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                </div>
-              </div>
-              </div>
-              </div>
-              <div class="container card mb-3">
-              <div class="row">
-              <div class="col-md-3 g-0 text-center">
-                  <div class="card-body subject">
-                      <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                      <div class="info course-info">
-                          <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                          <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-9 g-0">
-                <div class="card-body">
-                  <h3 class="card-title">Citizenship practice</h3>
-                  <h5 class="course-author">Author: Aljona Galazan</h5>
-                  <p class="card-text">Kogukonnapraktika on üks viise rakendada kodanikuharidust üldhariduskoolis, kujundada noorte inimeste kodanikuhoiakut ja sotsiaalset närvi, aidates noortel arendada endas ühiskondlikku aktiivsust ja hoolivust kaaskodanike suhtes.</p>
-                  <div class="more-line"><a href="https://heakodanik.ee/wp-content/uploads/2017/05/Kogukonnapraktika-k%c3%a4siraamat_2016.pdf" class="see-more-link" link=""><span>See More</span></a></div>
-
-                  <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                </div>
-              </div>
-              </div>
-              </div>
-              <div class="container card mb-3">
-              <div class="row">
-              <div class="col-md-3 g-0 text-center">
-                  <div class="card-body subject">
-                      <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                      <div class="info course-info">
-                          <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                          <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-9 g-0">
-                <div class="card-body">
-                  <h3 class="card-title">Citizenship studies</h3>
-                  <h5 class="course-author">Author: EMSL</h5>
-                  <p class="card-text">Kodanikuharidus on oskuste, teadmiste ja väärtushinnangute kujunemise protsess, mis toetab aktiivset ja vastutustundlikku ühiskonnaelus osalemist. Kodanikuks haritud inimene soovib, saab ja oskab oma elu juhtida, ühiskonnaelu mõjutada ja otsustes kaasa rääkida ning on seeläbi otseselt seotud vabatahtliku tegevusega.</p>
-                  <div class="more-line"><a href="https://heakodanik.ee/kodanikuharidus/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                  <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                </div>
-              </div>
-              </div>
-              </div>
-              <div class="container card mb-3">
-              <div class="row">
-              <div class="col-md-3 g-0 text-center">
-                  <div class="card-body subject">
-                      <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                      <div class="info course-info">
-                          <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                          <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-9 g-0">
-                <div class="card-body">
-                  <h3 class="card-title">Economics and entrepreneurship</h3>
-                  <h5 class="course-author">Author: Opiq</h5>
-                  <p class="card-text">Õpik seletab lihtsas keeles lahti majanduse põhitõed nõudlusest-pakkumisest kuni rahvusvahelise majanduseni. Käsitlemist leiavad tarbimise ja säästmise teemad, ettevõtlus, ettevõtte rahastamine, tootmine ja teenused, turundus, tööjõud, konkurents. </p>
-                  <div class="more-line"><a href="https://www.opiq.ee/Kit/Details/116" class="see-more-link" link=""><span>See More</span></a></div>
-
-                  <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                </div>
-              </div>
-              </div>
-              </div>
-              <div class="container card mb-3">
-              <div class="row">
-              <div class="col-md-3 g-0 text-center">
-                  <div class="card-body subject">
-                      <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                      <div class="info course-info">
-                          <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                          <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-9 g-0">
-                <div class="card-body">
-                  <h3 class="card-title">Family planning</h3>
-                  <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                  <p class="card-text">Inimeseõpetuse perekonnaõpetuse kursuses keskendutakse perekonnaelu psühholoogiale, sotsioloogiale, eetikale, perekonnaõigusele, majandamisele ja perekonna rollile ühiskonnas, et omandada vajalikud teadmised, oskused ja hoiakud tulevase perekonnaelu alusena.</p>
-                  <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/sotsiaalained/inimeseopetus/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                  <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                </div>
-              </div>
-              </div>
-              </div>
-              <div class="container card mb-3">
-              <div class="row">
-              <div class="col-md-3 g-0 text-center">
-                  <div class="card-body subject">
-                      <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                      <div class="info course-info">
-                          <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                          <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-9 g-0">
-                <div class="card-body">
-                  <h3 class="card-title">History</h3>
-                  <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                  <p class="card-text">Ajalooõpetus aitab õpilasel omandada kultuuriruumis ning ajalookeskkonnas orienteerumiseks vajalikke teadmisi ja oskusi ning teadvustada ja analüüsida minevikunähtuste muutlikkust, tõlgendatavust, omavahelisi seoseid ning seoseid tänapäevaga.</p>
-                  <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/sotsiaalained/ajalugu/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                  <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                </div>
-              </div>
-              </div>
-              </div>
-              <div class="container card mb-3">
-              <div class="row">
-              <div class="col-md-3 g-0 text-center">
-                  <div class="card-body subject">
-                      <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                      <div class="info course-info">
-                          <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                          <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-9 g-0">
-                <div class="card-body">
-                  <h3 class="card-title">Human geography</h3>
-                  <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                  <p class="card-text">Rahvastiku paiknemine ja tihedus, seda mõjutavad tegurid. Maailma rahvaarv ja selle muutumine. Demograafiline üleminek. Rahvastiku struktuur ja selle mõju riigi arengule.</p>
-                  <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/sotsiaalained/inimgeograafia/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                  <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                </div>
-              </div>
-              </div>
-              </div>
-              <div class="container card mb-3">
-              <div class="row">
-              <div class="col-md-3 g-0 text-center">
-                  <div class="card-body subject">
-                      <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                      <div class="info course-info">
-                          <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                          <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-9 g-0">
-                <div class="card-body">
-                  <h3 class="card-title">Human studies</h3>
-                  <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                  <p class="card-text">Kursus toetab õpilase isiksuse arenemist, aitab mõtestada ja analüüsida oma rolli perekonnas, arendada vastutustunnet nii isiklikus kui ka ühiskonnaelus. Perekonnaõpetuse kursus kujundab eelkõige õpilaste enesemääratlus-, sotsiaalset ja väärtuspädevust.</p>
-                  <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/sotsiaalained/inimeseopetus/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                  <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                </div>
-              </div>
-              </div>
-              </div>
-              <div class="container card mb-3">
-              <div class="row">
-              <div class="col-md-3 g-0 text-center">
-                  <div class="card-body subject">
-                      <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                      <div class="info course-info">
-                          <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                          <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-9 g-0">
-                <div class="card-body">
-                  <h3 class="card-title">Introduction to law</h3>
-                  <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                  <p class="card-text">Õppeaine eesmärk on luua eeldused, et kujuneks aktiivne ja kompetentne kodanik, kes suudab kohaneda muutustega, oskab ennast arenguga suhestada, oma kodanikupositsiooni kujundada ning on avatud uutele ideedele ja elukestvale õppimisele.</p>
-                  <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/sotsiaalained/uhiskonnaopetus/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                  <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                </div>
-              </div>
-              </div>
-              </div>
-              <div class="container card mb-3">
-              <div class="row">
-              <div class="col-md-3 g-0 text-center">
-                  <div class="card-body subject">
-                      <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                      <div class="info course-info">
-                          <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                          <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-9 g-0">
-                <div class="card-body">
-                  <h3 class="card-title">National defence</h3>
-                  <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                  <p class="card-text">Riigikaitseõpetusega taotletakse, et õpilased saavad põhiseadusest lähtuvalt teadlikuks oma riigikaitsealastest kohustustest ja õigustest ning ettekujutuse kaitseväeteenistuse liikidest.</p>
-                  <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/valikkursused/riigikaitse/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                  <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                </div>
-              </div>
-              </div>
-              </div>
-              <div class="container card mb-3">
-              <div class="row">
-              <div class="col-md-3 g-0 text-center">
-                  <div class="card-body subject">
-                      <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                      <div class="info course-info">
-                          <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                          <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-9 g-0">
-                <div class="card-body">
-                  <h3 class="card-title">Philosophy</h3>
-                  <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                  <p class="card-text">Filosoofia ainevaldkonnas käsitletakse filosoofia mõisteid, valdkondi, harusid, ajalugu ja rolli teaduste seas. Filosoofilise mõtlemise viise harjutatakse nende korrektse rakendamise kaudu suulises ja kirjalikus vormis.</p>
-                  <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/valikkursused/filosoofia/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                  <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                </div>
-              </div>
-              </div>
-              </div>
-              <div class="container card mb-3">
-              <div class="row">
-              <div class="col-md-3 g-0 text-center">
-                  <div class="card-body subject">
-                      <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                      <div class="info course-info">
-                          <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                          <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-9 g-0">
-                <div class="card-body">
-                  <h3 class="card-title">Psychology</h3>
-                  <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                  <p class="card-text">Kursus „Psühholoogia“ loob terviku, mõtestades seni omandatut kõrgemal tasemel, kusjuures rõhk on olulistel uurimustel ja katsetel, millega psühholoogilised teadmised on saadud.</p>
-                  <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/sotsiaalained/inimeseopetus/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                  <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                </div>
-              </div>
-              </div>
-              </div>
-              <div class="container card mb-3">
-              <div class="row">
-              <div class="col-md-3 g-0 text-center">
-                  <div class="card-body subject">
-                      <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                      <div class="info course-info">
-                          <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                          <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-9 g-0">
-                <div class="card-body">
-                  <h3 class="card-title">Religious studies</h3>
-                  <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                  <p class="card-text">Usundiõpetus lähtub ÜRO inimõiguste ülddeklaratsioonis sõnastatud usu- ja mõttevabaduse tunnistamise põhimõttest. Religioonialane haritus on usuvabaduse tagamise eeltingimusi ühiskonnas.</p>
-                  <div class="more-line"><a href="https://oppekava.innove.ee/gumnaasiumiharidus/valikkursused/usundiopetus/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                  <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                </div>
-              </div>
-              </div>
-              </div>
-              <div class="container card mb-3">
-              <div class="row">
-              <div class="col-md-3 g-0 text-center">
-                  <div class="card-body subject">
-                      <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                      <div class="info course-info">
-                          <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                          <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-9 g-0">
-                <div class="card-body">
-                  <h3 class="card-title">Social studies</h3>
-                  <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                  <p class="card-text">Õpilased omandavad sotsiaalse kirjaoskuse, s.o teadmised, oskused ja hoiakud, mida on vaja, et tulla vastutustundlikult toime dünaamilises ning mitmekultuurilises keskkonnas.</p>
-                  <div class="more-line"><a href="https://oppekava.ee/gumnaasiumiharidus/sotsiaalained/uhiskonnaopetus/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                  <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-                </div>
-              </div>
-              </div>
-              </div>
-            </div>
-
-            <!-- Technology -->
-            <div id="technology" class="courses-list collapse show" data-bs-parent="#courses">
-            <div class="container card mb-3">
-            <div class="row">
-            <div class="col-md-3 g-0 text-center">
-                <div class="card-body subject">
-                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                    <div class="info course-info">
-                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-9 g-0">
-              <div class="card-body">
-                <h3 class="card-title">3D modelling</h3>
-                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                <p class="card-text">Valikkursus põhineb kolmel oskusel: tehnilise joonestamise algtõdede omandamine; 3D-modelleerimistarkvara kasutamine toote loomiseks; arvuti teel juhitava CNC ehk arvprogrammjuhtimisega freespingi seadistamise algtõdede ning selle juhttarkvara kasutusoskuse omandamine. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                <div class="more-line"><a href="https://oppekava.ee/ainevaldkondade-ulesed-valikkursused/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-              </div>
-            </div>
-            </div>
-            </div>
-            <div class="container card mb-3">
-            <div class="row">
-            <div class="col-md-3 g-0 text-center">
-                <div class="card-body subject">
-                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                    <div class="info course-info">
-                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-9 g-0">
-              <div class="card-body">
-                <h3 class="card-title">Cyber security</h3>
-                <h5 class="course-author">Author: Tartu Ülikool</h5>
-                <p class="card-text">Digiohutuse õppematerjalide kogumik on mõeldud II kooliastme õpetajatele ja õpilastele digihügieeni teemade õpetamiseks ja õppimiseks. Eesmärgiks on tutvuda interneti ja erinevate tarkvarade kasutamise võimalustega ning ohutu suhtlemisega digivahendeid kasutades. Koolidele kehtib lisatasu 100€ õppeaastas.</p>
-                <div class="more-line"><a href="https://courses.cs.ut.ee/t/digiopik/Digih%c3%bcgieen/Digih%c3%bcgieen" class="see-more-link" link=""><span>See More</span></a></div>
-
-                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-              </div>
-            </div>
-            </div>
-            </div>
-            <div class="container card mb-3">
-            <div class="row">
-            <div class="col-md-3 g-0 text-center">
-                <div class="card-body subject">
-                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                    <div class="info course-info">
-                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-9 g-0">
-              <div class="card-body">
-                <h3 class="card-title">Drafting</h3>
-                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                <p class="card-text">Joonestamisel on praktilise tähtsusega koht õpilaste mõtlemise ja ruumikujutlusvõime arendamisel ning tehnika- ja tehnoloogiaalase graafilise kirjaoskuse kujunemisel. Kursus tugineb varasematele matemaatika, osaliselt ka kunsti ja tööõpetuse kohustuslikel kursustel omandatud teadmistele, oskustele ning hoiakutele.</p>
-                <div class="more-line"><a href="https://oppekava.ee/ainevaldkondade-ulesed-valikkursused/#AinevaldkondadelenevalikkursusMehhatroonikajarobootika" class="see-more-link" link=""><span>See More</span></a></div>
-
-                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-              </div>
-            </div>
-            </div>
-            </div>
-            <div class="container card mb-3">
-            <div class="row">
-            <div class="col-md-3 g-0 text-center">
-                <div class="card-body subject">
-                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                    <div class="info course-info">
-                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-9 g-0">
-              <div class="card-body">
-                <h3 class="card-title">Handicrafts</h3>
-                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                <p class="card-text">Käsitöö ja kodunduse õpe lõimib teoreetilised teadmised igapäevaelus vajalike praktiliste oskustega. Käsitöö seos tarbekunstiga loob eeldused loominguliseks eneseteostuseks.</p>
-                <div class="more-line"><a href="https://oppekava.ee/pohiharidus/tehnoloogia/kasitoo-ja-kodundus/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-              </div>
-            </div>
-            </div>
-            </div>
-            <div class="container card mb-3">
-            <div class="row">
-            <div class="col-md-3 g-0 text-center">
-                <div class="card-body subject">
-                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                    <div class="info course-info">
-                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-9 g-0">
-              <div class="card-body">
-                <h3 class="card-title">Informatics</h3>
-                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                <p class="card-text">Rakenduste loomise põhimõtteid ja põhifaase tutvustatakse praktilise töö kaudu, koostades mõningad projektid, mis sisaldavad modelleerimise, analüüsi ning disaini elemente.</p>
-                <div class="more-line"><a href="https://oppekava.ee/ainevaldkondade-ulesed-valikkursused/#AinevaldkondadelenevalikkursusMehhatroonikajarobootika" class="see-more-link" link=""><span>See More</span></a></div>
-
-                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-              </div>
-            </div>
-            </div>
-            </div>
-            <div class="container card mb-3">
-            <div class="row">
-            <div class="col-md-3 g-0 text-center">
-                <div class="card-body subject">
-                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                    <div class="info course-info">
-                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-9 g-0">
-              <div class="card-body">
-                <h3 class="card-title">Mechatronics and robotics</h3>
-                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                <p class="card-text">Kursusel käsitletakse mehhatroonika- ja robootikasüsteemi põhimõisteid ning süstemaatikat, nende süsteemide kasutusvaldkondi ning eripära, seadmete projekteerimise üldisi aluseid.</p>
-                <div class="more-line"><a href="https://oppekava.ee/ainevaldkondade-ulesed-valikkursused/#AinevaldkondadelenevalikkursusMehhatroonikajarobootika" class="see-more-link" link=""><span>See More</span></a></div>
-
-                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-              </div>
-            </div>
-            </div>
-            </div>
-            <div class="container card mb-3">
-            <div class="row">
-            <div class="col-md-3 g-0 text-center">
-                <div class="card-body subject">
-                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                    <div class="info course-info">
-                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-9 g-0">
-              <div class="card-body">
-                <h3 class="card-title">Technology studies</h3>
-                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                <p class="card-text">Õppe käigus omandatakse üldalused ja alusteave, mida on tarvis ülesannete lahendamiseks ja esemete valmistamiseks. Õppetundides lõimib aineõpetaja õppesisu praktilise tegevusega (puidutöö, metallitöö, elektroonika jm). </p>
-                <div class="more-line"><a href="https://oppekava.ee/pohiharidus/tehnoloogia/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-              </div>
-            </div>
-            </div>
-            </div>
-            <div class="container card mb-3">
-            <div class="row">
-            <div class="col-md-3 g-0 text-center">
-                <div class="card-body subject">
-                    <img class="course-image" src="img/teaching1.png" alt="img-teaching" />
-                    <div class="info course-info">
-                        <p class="info subject-info">Subject is meant for <span class="subject-style">9th grade</span> students</p>
-                        <p class="course-metadata"> <span class="subject-style">20</span> teachers and <span class="subject-style">10</span> schools have taught the subject</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-9 g-0">
-              <div class="card-body">
-                <h3 class="card-title">Woodwork</h3>
-                <h5 class="course-author">Author: Haridus- ja Noorteamet</h5>
-                <p class="card-text">Tööõpetust iseloomustab loov käeline aktiivsus, mis on oluline õpilaste füsioloogilises ja vaimses arengus. Tööülesannete valikul lähtutakse eesmärgist arendada õpilaste vaimseid ja füüsilisi võimeid: motoorikat, tähelepanu, silmamõõtu, ruumitaju, kujutlusvõimet jm. </p>
-                <div class="more-line"><a href="https://oppekava.ee/pohiharidus/tehnoloogia/tooopetus/" class="see-more-link" link=""><span>See More</span></a></div>
-
-                <blockquote>This course was well structured and had a logical flow. It had various materials such as games and questionnaires provided and ready to use. I strongly recommend it for teachers who are beginners.</blockquote>
-              </div>
-            </div>
-            </div>
-            </div>
-            </div>
-
-        </div>
+          <!-- Loadmore -->
+          <div class="more"><a class="load-more">Load more</a></div>
     </main>
     <footer>
         <div class="footer-font">TALLINN, ESTONIA 5345880 HELLO@EDUMUS.ORG</div>
@@ -1426,6 +1397,7 @@
         </div>
     </footer>
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/script.js" type="text/javascript"></script>
 </body>
 
 </html>
