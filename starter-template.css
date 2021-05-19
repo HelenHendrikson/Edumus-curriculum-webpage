@@ -75,7 +75,7 @@ blockquote::after {
 }
 
 .Header-nav {
-    background-image: url('img/edumus_elements.png');
+    background-image: url('https://raw.githubusercontent.com/HelenHendrikson/Edumus-curriculum-webpage/main/img/edumus_elements.png');
     background-position: 90% 40%;
     background-repeat: no-repeat;
     font-weight: 600;
