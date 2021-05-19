@@ -75,7 +75,7 @@ blockquote::after {
 }
 
 .Header-nav {
-    background-image:url('img/edumus_elements.png');
+    background-image: url('img/edumus_elements.png');
     background-position: 90% 40%;
     background-repeat: no-repeat;
     font-weight: 600;
